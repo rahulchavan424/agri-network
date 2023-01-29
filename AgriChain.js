@@ -13,47 +13,70 @@ class AgriChain extends Contract {
         const entities = [
             {
                 EntityID : '10001',
-                EntityName : "Raju bhau",
+                EntityName : "Farmer1",
                 Location : Chattarpur,
                 Role: 'Farmer'
             },
             {
-                EntityID : '10001',
-                EntityName : "Raju bhau",
-                Location : Chattarpur,
+                EntityID : '20001',
+                EntityName : "Wholesaler1",
+                Location : Rajapur,
                 Role: 'Wholesaler'
             },
             {
-                EntityID : '10001',
-                EntityName : "Raju bhau",
-                Location : Chattarpur,
+                EntityID : '30001',
+                EntityName : "Distributor1",
+                Location : Sangli,
                 Role: 'Distributor'
             },
             {
-                EntityID : '10001',
-                EntityName : "Raju bhau",
-                Location : Chattarpur,
+                EntityID : '40001',
+                EntityName : "Retailer1",
+                Location : Kolhapur,
                 Role: 'Retailer'
             },
             {
-                EntityID : '10001',
-                EntityName : "Raju bhau",
-                Location : Chattarpur,
+                EntityID : '50001',
+                EntityName : "Transporter1",
+                Location : Nagpur,
                 Role: 'Transporter'
             }
         ];
 
         for (const entity of entities) {
             entity.docType = 'entity';
-            await ctx.stub.putState(farmer.farmerID, Buffer.from(JSON.stringify(farmer)));
-            console.info(`Farmer ${farmer.farmerID} intitialised`);
+            await ctx.stub.putState(entity.entityID, Buffer.from(JSON.stringify(entity)));
+            console.info(`Entity ${entity.entityID} intitialized`);
         }
     }
+
+    //exist check for entity
+    async entityExists(ctx, entityId) {
+        const assetJSON = await ctx.stub.getState(entityId);
+        return assetJSON && assetJSON.length > 0;
+    }
+
+    //exist check for batch
+    async batchExists(ctx, batchId, cropName) {
+        const batchKey = ctx.stub.createCompositeKey('batch', [batchId, cropName]);
+        const batchAsBytes = await ctx.stub.getState(batchKey);
+        return batchAsBytes && batchAsBytes.length > 0;
+    }
     
-    // Register
+    //delete entity
+    async deleteEntity(ctx, entityId) {
+        const exists = await this.AssetExists(ctx, entityId);
+        if (!exists) {
+            throw new Error("the entity does not exist");
+        }
+        return ctx.stub.deleteState(id);
+    }
+
+    //register entity
     async registerEntity(ctx, args) {
-        if (args.length != 4) {
-            throw new Error("insufficient info");
+        const entityExists = await this.entityExists(ctx, args[0]);
+        if (args.length != 4 || entityExists) {
+            throw new Error("insufficient information or entity already exists");
         }
         const entity = {
             EntityID : args[0],
@@ -65,10 +88,13 @@ class AgriChain extends Contract {
         return JSON.stringify(entity);
     }
     
-    // Addbatch for issuing new assets like crop, batchid, harvestdate, expdate, farmerID .
+
+    
+    //add a batch only by farmer
     async addBatch(ctx, args) {
-        if (args.length != 6) {
-            throw new Error("insufficient info");
+        const batchExists = await this.batchExists(ctx, args[0], args[1]);
+        if (args.length != 6 || batchExists) {
+            throw new Error("insufficient information or batch already exists");
         }
         if (role == 'Farmer') {
             const batch ={
@@ -81,40 +107,52 @@ class AgriChain extends Contract {
                 Stage: 0
             };
             const batchAsBytes = Buffer.from(JSON.stringify(batch));
-            //composite key for multiple properties
             const compositeKey = ctx.stub.createCompositeKey('batch', [batch.BatchID, batch.CropName]);
-            await ctx.stub.putState(compositeKey)
+            await ctx.stub.putState(compositeKey);
         } else {
-            throw new Error("not a farmer");
+            throw new Error("batch can only be added by a farmer");
         }
     }
-    // Transfer buyerid, sellerid, cropname,batchid, role
+    
+    //transfer a batch
     async transferBatch(ctx, buyerId, batchId, cropName) {
+        const batchExists = await this.batchExists(ctx, batchId, cropName);
+        if (!batchExists) {
+            throw new Error("batch does not exist");
+        }
         const batchKey = ctx.stub.createCompositeKey('batch', [batchId, cropName]);
         const batchAsBytes = await ctx.stub.getState(batchKey);
         const batch = JSON.parse(batchAsBytes.toString());
-        if (batch.Stage == 0 && batch.Role == 'Farmer') {
+        if (batch.Stage === 0 && batch.Role === 'Farmer') {
             batch.EntityID = buyerId;
             batch.Stage += 1;
+            batch.Role = 'Wholesaler';
             await ctx.stub.putState(batchId, Buffer.from(JSON.stringify(batch)));
-        } else if (batch.Stage == 1 && batch.Role == 'Wholesaler') {
+        } else if (batch.Stage === 1 && batch.Role === 'Wholesaler') {
                 batch.EntityID = buyerId;
                 batch.Stage += 1;
+                batch.Role = 'Distributor';
                 await ctx.stub.putState(batchId, Buffer.from(JSON.stringify(batch)));
-        } else if (batch.Stage == 2 && batch.Role == 'Distributor') {
+        } else if (batch.Stage === 2 && batch.Role === 'Distributor') {
             batch.EntityID = buyerId;
             batch.Stage += 1;
+            batch.Role = 'Retailer';
             await ctx.stub.putState(batchId, Buffer.from(JSON.stringify(batch)));
         } else {
             throw new Error("invalid transaction");
         }
     }
 
+    //retail a batch
     async retailBatch(ctx, transporterId, batchId, cropName) {
+        const batchExists = await this.batchExists(ctx, batchId, cropName);
+        if (!batchExists) {
+            throw new Error("batch does not exist");
+        }
         const batchKey = ctx.stub.createCompositeKey('batch', [batchId, cropName]);
         const batchAsBytes = await ctx.stub.getState(batchKey);
         const batch = JSON.parse(batchAsBytes.toString());
-        if (batch.Stage == 3 && batch.Role == 'Retailer') {
+        if (batch.Stage === 3 && batch.Role === 'Retailer') {
             batch.EntityID = transporterId;
             batch.Stage += 1;
             await ctx.stub.putState(batchId, Buffer.from(JSON.stringify(batch)));
@@ -123,9 +161,46 @@ class AgriChain extends Contract {
         }
     }
 
+    //delete batch
     async deleteBatch(ctx, batchId, cropName) {
+        const batchExists = await this.batchExists(ctx, batchId, cropName);
+        if (!batchExists) {
+            throw new Error("batch does not exist");
+        }
         const batchKey = ctx.stub.createCompositeKey('batch', [batchId, cropName]);
         await ctx.stub.deleteState(batchKey);
-    } 
+    }
+    
+    //view batch history
+    async viewBatchHistory(ctx, batchID, cropName) {
+        const batchExists = await this.batchExists(ctx, batchId, cropName);
+        if (!batchExists) {
+            throw new Error("batch does not exist");
+        }
+        const batchKey = ctx.stub.createCompositeKey('batch', [batchID, cropName]);
+        const history = await ctx.stub.getHistoryForKey(batchKey);
+    
+        const results = [];
+        for (let i = 0; i < history.length; i++) {
+            const batch = JSON.parse(history[i].value.toString());
+            results.push({
+                transaction_id: history[i].tx_id,
+                batchID: batch.batchID,
+                cropName: batch.cropName,
+            });
+        }
+    }
+
+    //view batch current state
+    async viewBatchCurrentState(ctx, batchId, cropName) {
+        const batchExists = await this.batchExists(ctx, batchId, cropName);
+        if (!batchExists) {
+            throw new Error("batch does not exist");
+        }
+        const batchKey = ctx.stub.createCompositeKey('batch', [batchId, cropName]);
+        const batchAsBytes = await ctx.stub.getState(batchKey);
+        const batch = JSON.parse(batchAsBytes.toString());
+        return batch;
+    }
 }
 
