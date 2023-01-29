@@ -1,0 +1,100 @@
+---
+OrdererOrgs:
+  - Name: example.com
+    Domain: example.com
+    Specs:
+      - Hostname: orderer
+        SANS:
+          - 192.168.0.103
+
+PeerOrgs:
+  - Name: distributor.example.com
+    Domain: distributor.example.com
+    EnableNodeOUs: true
+    CA:
+      Hostname: ca1
+      CommonName: ca1.distributor.example.com
+      Country: US
+      Province: North Carolina
+      Locality: Raleigh
+    Specs:
+      - Hostname: peer1
+        CommonName: peer1.distributor.example.com
+        SANS:
+          - 192.168.0.103
+      - Hostname: peer2
+        CommonName: peer2.distributor.example.com
+        SANS:
+          - 192.168.0.103
+  - Name: farmer.example.com
+    Domain: farmer.example.com
+    EnableNodeOUs: true
+    CA:
+      Hostname: ca1
+      CommonName: ca1.farmer.example.com
+      Country: US
+      Province: North Carolina
+      Locality: Raleigh
+    Specs:
+      - Hostname: peer1
+        CommonName: peer1.farmer.example.com
+        SANS:
+          - 192.168.0.103
+      - Hostname: peer2
+        CommonName: peer2.farmer.example.com
+        SANS:
+          - 192.168.0.103
+  - Name: retailer.example.com
+    Domain: retailer.example.com
+    EnableNodeOUs: true
+    CA:
+      Hostname: ca1
+      CommonName: ca1.retailer.example.com
+      Country: US
+      Province: North Carolina
+      Locality: Raleigh
+    Specs:
+      - Hostname: peer1
+        CommonName: peer1.retailer.example.com
+        SANS:
+          - 192.168.0.103
+      - Hostname: peer2
+        CommonName: peer2.retailer.example.com
+        SANS:
+          - 192.168.0.103
+  - Name: transporter.example.com
+    Domain: transporter.example.com
+    EnableNodeOUs: true
+    CA:
+      Hostname: ca1
+      CommonName: ca1.transporter.example.com
+      Country: US
+      Province: North Carolina
+      Locality: Raleigh
+    Specs:
+      - Hostname: peer1
+        CommonName: peer1.transporter.example.com
+        SANS:
+          - 192.168.0.103
+      - Hostname: peer2
+        CommonName: peer2.transporter.example.com
+        SANS:
+          - 192.168.0.103
+  - Name: wholesaler.example.com
+    Domain: wholesaler.example.com
+    EnableNodeOUs: true
+    CA:
+      Hostname: ca1
+      CommonName: ca1.wholesaler.example.com
+      Country: US
+      Province: North Carolina
+      Locality: Raleigh
+    Specs:
+      - Hostname: peer1
+        CommonName: peer1.wholesaler.example.com
+        SANS:
+          - 192.168.0.103
+      - Hostname: peer2
+        CommonName: peer2.wholesaler.example.com
+        SANS:
+          - 192.168.0.103

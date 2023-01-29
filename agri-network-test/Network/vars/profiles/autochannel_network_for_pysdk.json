@@ -1,0 +1,300 @@
+{
+  "name": "fabric-network",
+  "description": "Generated network configuration file",
+  "version": "0.1",
+  "client": {
+    "organization": "transporter.example.com",
+    "credentialStore": {
+      "path": "/tmp/hfc-kvs",
+      "cryptoStore": {
+        "path": "/tmp/hfc-cvs"
+      },
+      "wallet": "wallet-name"
+    }
+  },
+  "organizations": {
+    "distributor.example.com": {
+      "mspid": "distributor-example-com",
+      "peers": [
+        "peer1.distributor.example.com",
+        "peer2.distributor.example.com"
+      ],
+      "users": {
+        "Admin": {
+          "cert": "/keyfiles/peerOrganizations/distributor.example.com/users/Admin@distributor.example.com/msp/signcerts/Admin@distributor.example.com-cert.pem",
+          "private_key": "/keyfiles/peerOrganizations/distributor.example.com/users/Admin@distributor.example.com/msp/keystore/priv_sk"
+        }
+      }
+    },
+    "example.com": {
+      "mspid": "example-com",
+      "orderers": [
+        "orderer.example.com"
+      ],
+      "users": {
+        "Admin": {
+          "cert": "/keyfiles/ordererOrganizations/example.com/users/Admin@example.com/msp/signcerts/Admin@example.com-cert.pem",
+          "private_key": "/keyfiles/ordererOrganizations/example.com/users/Admin@example.com/msp/keystore/priv_sk"
+        }
+      }
+    },
+    "farmer.example.com": {
+      "mspid": "farmer-example-com",
+      "peers": [
+        "peer1.farmer.example.com",
+        "peer2.farmer.example.com"
+      ],
+      "users": {
+        "Admin": {
+          "cert": "/keyfiles/peerOrganizations/farmer.example.com/users/Admin@farmer.example.com/msp/signcerts/Admin@farmer.example.com-cert.pem",
+          "private_key": "/keyfiles/peerOrganizations/farmer.example.com/users/Admin@farmer.example.com/msp/keystore/priv_sk"
+        }
+      }
+    },
+    "retailer.example.com": {
+      "mspid": "retailer-example-com",
+      "peers": [
+        "peer1.retailer.example.com",
+        "peer2.retailer.example.com"
+      ],
+      "users": {
+        "Admin": {
+          "cert": "/keyfiles/peerOrganizations/retailer.example.com/users/Admin@retailer.example.com/msp/signcerts/Admin@retailer.example.com-cert.pem",
+          "private_key": "/keyfiles/peerOrganizations/retailer.example.com/users/Admin@retailer.example.com/msp/keystore/priv_sk"
+        }
+      }
+    },
+    "transporter.example.com": {
+      "mspid": "transporter-example-com",
+      "peers": [
+        "peer1.transporter.example.com",
+        "peer2.transporter.example.com"
+      ],
+      "users": {
+        "Admin": {
+          "cert": "/keyfiles/peerOrganizations/transporter.example.com/users/Admin@transporter.example.com/msp/signcerts/Admin@transporter.example.com-cert.pem",
+          "private_key": "/keyfiles/peerOrganizations/transporter.example.com/users/Admin@transporter.example.com/msp/keystore/priv_sk"
+        }
+      }
+    },
+    "wholesaler.example.com": {
+      "mspid": "wholesaler-example-com",
+      "peers": [
+        "peer1.wholesaler.example.com",
+        "peer2.wholesaler.example.com"
+      ],
+      "users": {
+        "Admin": {
+          "cert": "/keyfiles/peerOrganizations/wholesaler.example.com/users/Admin@wholesaler.example.com/msp/signcerts/Admin@wholesaler.example.com-cert.pem",
+          "private_key": "/keyfiles/peerOrganizations/wholesaler.example.com/users/Admin@wholesaler.example.com/msp/keystore/priv_sk"
+        }
+      }
+    }
+  },
+  "orderers": {
+    "orderer.example.com": {
+      "url": "192.168.0.103:7030",
+      "grpcOptions": {
+        "grpc.ssl_target_name_override": "orderer.example.com",
+        "grpc-max-send-message-length": 15
+      },
+      "tlsCACerts": {
+        "path": "/keyfiles/ordererOrganizations/example.com/orderers/orderer.example.com/tls/ca.crt"
+      }
+    }
+  },
+  "peers": {
+    "peer1.farmer.example.com": {
+      "url": "192.168.0.103:7010",
+      "grpcOptions": {
+        "grpc.ssl_target_name_override": "peer1.farmer.example.com",
+        "grpc-max-send-message-length": 15
+      },
+      "tlsCACerts": {
+        "path": "/keyfiles/peerOrganizations/farmer.example.com/peers/peer1.farmer.example.com/tls/ca.crt"
+      }
+    },
+    "peer2.farmer.example.com": {
+      "url": "192.168.0.103:7011",
+      "grpcOptions": {
+        "grpc.ssl_target_name_override": "peer2.farmer.example.com",
+        "grpc-max-send-message-length": 15
+      },
+      "tlsCACerts": {
+        "path": "/keyfiles/peerOrganizations/farmer.example.com/peers/peer2.farmer.example.com/tls/ca.crt"
+      }
+    },
+    "peer1.wholesaler.example.com": {
+      "url": "192.168.0.103:7012",
+      "grpcOptions": {
+        "grpc.ssl_target_name_override": "peer1.wholesaler.example.com",
+        "grpc-max-send-message-length": 15
+      },
+      "tlsCACerts": {
+        "path": "/keyfiles/peerOrganizations/wholesaler.example.com/peers/peer1.wholesaler.example.com/tls/ca.crt"
+      }
+    },
+    "peer2.wholesaler.example.com": {
+      "url": "192.168.0.103:7013",
+      "grpcOptions": {
+        "grpc.ssl_target_name_override": "peer2.wholesaler.example.com",
+        "grpc-max-send-message-length": 15
+      },
+      "tlsCACerts": {
+        "path": "/keyfiles/peerOrganizations/wholesaler.example.com/peers/peer2.wholesaler.example.com/tls/ca.crt"
+      }
+    },
+    "peer1.distributor.example.com": {
+      "url": "192.168.0.103:7014",
+      "grpcOptions": {
+        "grpc.ssl_target_name_override": "peer1.distributor.example.com",
+        "grpc-max-send-message-length": 15
+      },
+      "tlsCACerts": {
+        "path": "/keyfiles/peerOrganizations/distributor.example.com/peers/peer1.distributor.example.com/tls/ca.crt"
+      }
+    },
+    "peer2.distributor.example.com": {
+      "url": "192.168.0.103:7015",
+      "grpcOptions": {
+        "grpc.ssl_target_name_override": "peer2.distributor.example.com",
+        "grpc-max-send-message-length": 15
+      },
+      "tlsCACerts": {
+        "path": "/keyfiles/peerOrganizations/distributor.example.com/peers/peer2.distributor.example.com/tls/ca.crt"
+      }
+    },
+    "peer1.retailer.example.com": {
+      "url": "192.168.0.103:7016",
+      "grpcOptions": {
+        "grpc.ssl_target_name_override": "peer1.retailer.example.com",
+        "grpc-max-send-message-length": 15
+      },
+      "tlsCACerts": {
+        "path": "/keyfiles/peerOrganizations/retailer.example.com/peers/peer1.retailer.example.com/tls/ca.crt"
+      }
+    },
+    "peer2.retailer.example.com": {
+      "url": "192.168.0.103:7017",
+      "grpcOptions": {
+        "grpc.ssl_target_name_override": "peer2.retailer.example.com",
+        "grpc-max-send-message-length": 15
+      },
+      "tlsCACerts": {
+        "path": "/keyfiles/peerOrganizations/retailer.example.com/peers/peer2.retailer.example.com/tls/ca.crt"
+      }
+    },
+    "peer1.transporter.example.com": {
+      "url": "192.168.0.103:7018",
+      "grpcOptions": {
+        "grpc.ssl_target_name_override": "peer1.transporter.example.com",
+        "grpc-max-send-message-length": 15
+      },
+      "tlsCACerts": {
+        "path": "/keyfiles/peerOrganizations/transporter.example.com/peers/peer1.transporter.example.com/tls/ca.crt"
+      }
+    },
+    "peer2.transporter.example.com": {
+      "url": "192.168.0.103:7019",
+      "grpcOptions": {
+        "grpc.ssl_target_name_override": "peer2.transporter.example.com",
+        "grpc-max-send-message-length": 15
+      },
+      "tlsCACerts": {
+        "path": "/keyfiles/peerOrganizations/transporter.example.com/peers/peer2.transporter.example.com/tls/ca.crt"
+      }
+    }
+  },
+  "certificateAuthorities": {
+    "ca1.farmer.example.com": {
+      "url": "https://192.168.0.103:7000",
+      "tlsCACerts": {
+        "path": "/keyfiles/peerOrganizations/farmer.example.com/ca/ca1.farmer.example.com-cert.pem"
+      },
+      "httpOptions": { "verify": "false" },
+      "caName": "ca1",
+      "registrar": { "enrollId": "admin", "enrollSecret": "adminpw" }
+    },
+    "ca2.farmer.example.com": {
+      "url": "https://192.168.0.103:7001",
+      "tlsCACerts": {
+        "path": "/keyfiles/peerOrganizations/farmer.example.com/ca/ca2.farmer.example.com-cert.pem"
+      },
+      "httpOptions": { "verify": "false" },
+      "caName": "ca2",
+      "registrar": { "enrollId": "admin", "enrollSecret": "adminpw" }
+    },
+    "ca1.wholesaler.example.com": {
+      "url": "https://192.168.0.103:7002",
+      "tlsCACerts": {
+        "path": "/keyfiles/peerOrganizations/wholesaler.example.com/ca/ca1.wholesaler.example.com-cert.pem"
+      },
+      "httpOptions": { "verify": "false" },
+      "caName": "ca1",
+      "registrar": { "enrollId": "admin", "enrollSecret": "adminpw" }
+    },
+    "ca2.wholesaler.example.com": {
+      "url": "https://192.168.0.103:7003",
+      "tlsCACerts": {
+        "path": "/keyfiles/peerOrganizations/wholesaler.example.com/ca/ca2.wholesaler.example.com-cert.pem"
+      },
+      "httpOptions": { "verify": "false" },
+      "caName": "ca2",
+      "registrar": { "enrollId": "admin", "enrollSecret": "adminpw" }
+    },
+    "ca1.distributor.example.com": {
+      "url": "https://192.168.0.103:7004",
+      "tlsCACerts": {
+        "path": "/keyfiles/peerOrganizations/distributor.example.com/ca/ca1.distributor.example.com-cert.pem"
+      },
+      "httpOptions": { "verify": "false" },
+      "caName": "ca1",
+      "registrar": { "enrollId": "admin", "enrollSecret": "adminpw" }
+    },
+    "ca2.distributor.example.com": {
+      "url": "https://192.168.0.103:7005",
+      "tlsCACerts": {
+        "path": "/keyfiles/peerOrganizations/distributor.example.com/ca/ca2.distributor.example.com-cert.pem"
+      },
+      "httpOptions": { "verify": "false" },
+      "caName": "ca2",
+      "registrar": { "enrollId": "admin", "enrollSecret": "adminpw" }
+    },
+    "ca1.retailer.example.com": {
+      "url": "https://192.168.0.103:7006",
+      "tlsCACerts": {
+        "path": "/keyfiles/peerOrganizations/retailer.example.com/ca/ca1.retailer.example.com-cert.pem"
+      },
+      "httpOptions": { "verify": "false" },
+      "caName": "ca1",
+      "registrar": { "enrollId": "admin", "enrollSecret": "adminpw" }
+    },
+    "ca2.retailer.example.com": {
+      "url": "https://192.168.0.103:7007",
+      "tlsCACerts": {
+        "path": "/keyfiles/peerOrganizations/retailer.example.com/ca/ca2.retailer.example.com-cert.pem"
+      },
+      "httpOptions": { "verify": "false" },
+      "caName": "ca2",
+      "registrar": { "enrollId": "admin", "enrollSecret": "adminpw" }
+    },
+    "ca1.transporter.example.com": {
+      "url": "https://192.168.0.103:7008",
+      "tlsCACerts": {
+        "path": "/keyfiles/peerOrganizations/transporter.example.com/ca/ca1.transporter.example.com-cert.pem"
+      },
+      "httpOptions": { "verify": "false" },
+      "caName": "ca1",
+      "registrar": { "enrollId": "admin", "enrollSecret": "adminpw" }
+    },
+    "ca2.transporter.example.com": {
+      "url": "https://192.168.0.103:7009",
+      "tlsCACerts": {
+        "path": "/keyfiles/peerOrganizations/transporter.example.com/ca/ca2.transporter.example.com-cert.pem"
+      },
+      "httpOptions": { "verify": "false" },
+      "caName": "ca2",
+      "registrar": { "enrollId": "admin", "enrollSecret": "adminpw" }
+    }
+  }
+}

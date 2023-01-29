@@ -1,0 +1,41 @@
+fabric:
+############################################################### 
+  # Declaring unique addresses of the Certificate Authorities 
+  # of all organizations.
+  cas:  
+  - "ca1.farmer.example.com"
+  - "ca2.farmer.example.com"
+  - "ca1.wholesaler.example.com"
+  - "ca2.wholesaler.example.com"
+  - "ca1.distributor.example.com"
+  - "ca2.distributor.example.com"
+  - "ca1.retailer.example.com"
+  - "ca2.retailer.example.com"
+  - "ca1.transporter.example.com"
+  - "ca2.transporter.example.com"
+############################################################### 
+  # Declaring unique addresses of the peers of organisations. 
+  # There can be multiple peers for each organizations
+  peers: 
+  - "peer1.farmer.example.com"
+  - "peer2.farmer.example.com"
+  - "peer1.wholesaler.example.com"
+  - "peer2.wholesaler.example.com"
+  - "peer1.distributor.example.com"
+  - "peer2.distributor.example.com"
+  - "peer1.retailer.example.com"
+  - "peer2.retailer.example.com"
+  - "peer1.transporter.example.com"
+  - "peer2.transporter.example.com"
+############################################################### 
+  # Declaring unique addresses of the orderers.
+  orderers:
+  - "orderer.example.com"
+############################################################### 
+  settings:
+    ca:
+      FABRIC_LOGGING_SPEC: DEBUG
+    peer:
+      FABRIC_LOGGING_SPEC: DEBUG
+    orderer:
+      FABRIC_LOGGING_SPEC: DEBUG

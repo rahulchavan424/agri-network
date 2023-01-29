@@ -1,0 +1,435 @@
+{
+  "allcas": [
+    {
+      "adminPassword": "adminpw",
+      "command": "fabric-ca-server start -b admin:adminpw --cfg.affiliations.allowremove --cfg.identities.allowremove",
+      "fullname": "ca1.farmer.example.com",
+      "mspid": "farmer-example-com",
+      "name": "ca1",
+      "oport": "8000",
+      "org": "farmer.example.com",
+      "port": "7000",
+      "portmap": "-p 7000:7054 -p 8000:9443",
+      "type": "ca",
+      "url": "192.168.0.103"
+    },
+    {
+      "adminPassword": "adminpw",
+      "command": "fabric-ca-server start -b admin:adminpw --cfg.affiliations.allowremove --cfg.identities.allowremove",
+      "fullname": "ca2.farmer.example.com",
+      "mspid": "farmer-example-com",
+      "name": "ca2",
+      "oport": "8001",
+      "org": "farmer.example.com",
+      "port": "7001",
+      "portmap": "-p 7001:7054 -p 8001:9443",
+      "type": "ca",
+      "url": "192.168.0.103"
+    },
+    {
+      "adminPassword": "adminpw",
+      "command": "fabric-ca-server start -b admin:adminpw --cfg.affiliations.allowremove --cfg.identities.allowremove",
+      "fullname": "ca1.wholesaler.example.com",
+      "mspid": "wholesaler-example-com",
+      "name": "ca1",
+      "oport": "8002",
+      "org": "wholesaler.example.com",
+      "port": "7002",
+      "portmap": "-p 7002:7054 -p 8002:9443",
+      "type": "ca",
+      "url": "192.168.0.103"
+    },
+    {
+      "adminPassword": "adminpw",
+      "command": "fabric-ca-server start -b admin:adminpw --cfg.affiliations.allowremove --cfg.identities.allowremove",
+      "fullname": "ca2.wholesaler.example.com",
+      "mspid": "wholesaler-example-com",
+      "name": "ca2",
+      "oport": "8003",
+      "org": "wholesaler.example.com",
+      "port": "7003",
+      "portmap": "-p 7003:7054 -p 8003:9443",
+      "type": "ca",
+      "url": "192.168.0.103"
+    },
+    {
+      "adminPassword": "adminpw",
+      "command": "fabric-ca-server start -b admin:adminpw --cfg.affiliations.allowremove --cfg.identities.allowremove",
+      "fullname": "ca1.distributor.example.com",
+      "mspid": "distributor-example-com",
+      "name": "ca1",
+      "oport": "8004",
+      "org": "distributor.example.com",
+      "port": "7004",
+      "portmap": "-p 7004:7054 -p 8004:9443",
+      "type": "ca",
+      "url": "192.168.0.103"
+    },
+    {
+      "adminPassword": "adminpw",
+      "command": "fabric-ca-server start -b admin:adminpw --cfg.affiliations.allowremove --cfg.identities.allowremove",
+      "fullname": "ca2.distributor.example.com",
+      "mspid": "distributor-example-com",
+      "name": "ca2",
+      "oport": "8005",
+      "org": "distributor.example.com",
+      "port": "7005",
+      "portmap": "-p 7005:7054 -p 8005:9443",
+      "type": "ca",
+      "url": "192.168.0.103"
+    },
+    {
+      "adminPassword": "adminpw",
+      "command": "fabric-ca-server start -b admin:adminpw --cfg.affiliations.allowremove --cfg.identities.allowremove",
+      "fullname": "ca1.retailer.example.com",
+      "mspid": "retailer-example-com",
+      "name": "ca1",
+      "oport": "8006",
+      "org": "retailer.example.com",
+      "port": "7006",
+      "portmap": "-p 7006:7054 -p 8006:9443",
+      "type": "ca",
+      "url": "192.168.0.103"
+    },
+    {
+      "adminPassword": "adminpw",
+      "command": "fabric-ca-server start -b admin:adminpw --cfg.affiliations.allowremove --cfg.identities.allowremove",
+      "fullname": "ca2.retailer.example.com",
+      "mspid": "retailer-example-com",
+      "name": "ca2",
+      "oport": "8007",
+      "org": "retailer.example.com",
+      "port": "7007",
+      "portmap": "-p 7007:7054 -p 8007:9443",
+      "type": "ca",
+      "url": "192.168.0.103"
+    },
+    {
+      "adminPassword": "adminpw",
+      "command": "fabric-ca-server start -b admin:adminpw --cfg.affiliations.allowremove --cfg.identities.allowremove",
+      "fullname": "ca1.transporter.example.com",
+      "mspid": "transporter-example-com",
+      "name": "ca1",
+      "oport": "8008",
+      "org": "transporter.example.com",
+      "port": "7008",
+      "portmap": "-p 7008:7054 -p 8008:9443",
+      "type": "ca",
+      "url": "192.168.0.103"
+    },
+    {
+      "adminPassword": "adminpw",
+      "command": "fabric-ca-server start -b admin:adminpw --cfg.affiliations.allowremove --cfg.identities.allowremove",
+      "fullname": "ca2.transporter.example.com",
+      "mspid": "transporter-example-com",
+      "name": "ca2",
+      "oport": "8009",
+      "org": "transporter.example.com",
+      "port": "7009",
+      "portmap": "-p 7009:7054 -p 8009:9443",
+      "type": "ca",
+      "url": "192.168.0.103"
+    }
+  ],
+  "allcouchdbs": [
+    {
+      "adminPassword": "adminpw",
+      "fullname": "peer1.farmer.example.com.couchdb",
+      "mspid": "farmer-example-com",
+      "name": "peer1.couchdb",
+      "org": "farmer.example.com",
+      "port": "7020",
+      "portmap": "-p 7020:5984",
+      "type": "couchdb",
+      "url": "192.168.0.103"
+    },
+    {
+      "adminPassword": "adminpw",
+      "fullname": "peer2.farmer.example.com.couchdb",
+      "mspid": "farmer-example-com",
+      "name": "peer2.couchdb",
+      "org": "farmer.example.com",
+      "port": "7021",
+      "portmap": "-p 7021:5984",
+      "type": "couchdb",
+      "url": "192.168.0.103"
+    },
+    {
+      "adminPassword": "adminpw",
+      "fullname": "peer1.wholesaler.example.com.couchdb",
+      "mspid": "wholesaler-example-com",
+      "name": "peer1.couchdb",
+      "org": "wholesaler.example.com",
+      "port": "7022",
+      "portmap": "-p 7022:5984",
+      "type": "couchdb",
+      "url": "192.168.0.103"
+    },
+    {
+      "adminPassword": "adminpw",
+      "fullname": "peer2.wholesaler.example.com.couchdb",
+      "mspid": "wholesaler-example-com",
+      "name": "peer2.couchdb",
+      "org": "wholesaler.example.com",
+      "port": "7023",
+      "portmap": "-p 7023:5984",
+      "type": "couchdb",
+      "url": "192.168.0.103"
+    },
+    {
+      "adminPassword": "adminpw",
+      "fullname": "peer1.distributor.example.com.couchdb",
+      "mspid": "distributor-example-com",
+      "name": "peer1.couchdb",
+      "org": "distributor.example.com",
+      "port": "7024",
+      "portmap": "-p 7024:5984",
+      "type": "couchdb",
+      "url": "192.168.0.103"
+    },
+    {
+      "adminPassword": "adminpw",
+      "fullname": "peer2.distributor.example.com.couchdb",
+      "mspid": "distributor-example-com",
+      "name": "peer2.couchdb",
+      "org": "distributor.example.com",
+      "port": "7025",
+      "portmap": "-p 7025:5984",
+      "type": "couchdb",
+      "url": "192.168.0.103"
+    },
+    {
+      "adminPassword": "adminpw",
+      "fullname": "peer1.retailer.example.com.couchdb",
+      "mspid": "retailer-example-com",
+      "name": "peer1.couchdb",
+      "org": "retailer.example.com",
+      "port": "7026",
+      "portmap": "-p 7026:5984",
+      "type": "couchdb",
+      "url": "192.168.0.103"
+    },
+    {
+      "adminPassword": "adminpw",
+      "fullname": "peer2.retailer.example.com.couchdb",
+      "mspid": "retailer-example-com",
+      "name": "peer2.couchdb",
+      "org": "retailer.example.com",
+      "port": "7027",
+      "portmap": "-p 7027:5984",
+      "type": "couchdb",
+      "url": "192.168.0.103"
+    },
+    {
+      "adminPassword": "adminpw",
+      "fullname": "peer1.transporter.example.com.couchdb",
+      "mspid": "transporter-example-com",
+      "name": "peer1.couchdb",
+      "org": "transporter.example.com",
+      "port": "7028",
+      "portmap": "-p 7028:5984",
+      "type": "couchdb",
+      "url": "192.168.0.103"
+    },
+    {
+      "adminPassword": "adminpw",
+      "fullname": "peer2.transporter.example.com.couchdb",
+      "mspid": "transporter-example-com",
+      "name": "peer2.couchdb",
+      "org": "transporter.example.com",
+      "port": "7029",
+      "portmap": "-p 7029:5984",
+      "type": "couchdb",
+      "url": "192.168.0.103"
+    }
+  ],
+  "allorderers": [
+    {
+      "fullname": "orderer.example.com",
+      "mspid": "example-com",
+      "name": "orderer",
+      "oport": "8030",
+      "org": "example.com",
+      "port": "7030",
+      "portmap": "-p 7030:7050 -p 8030:7060",
+      "type": "orderer",
+      "url": "192.168.0.103"
+    }
+  ],
+  "allorgs": [
+    "distributor.example.com",
+    "example.com",
+    "farmer.example.com",
+    "retailer.example.com",
+    "transporter.example.com",
+    "wholesaler.example.com"
+  ],
+  "allpeers": [
+    {
+      "adminPassword": "adminpw",
+      "fullname": "peer1.farmer.example.com",
+      "mspid": "farmer-example-com",
+      "name": "peer1",
+      "oport": "8010",
+      "org": "farmer.example.com",
+      "port": "7010",
+      "portmap": "-p 7010:7051 -p 8010:7061",
+      "type": "peer",
+      "url": "192.168.0.103"
+    },
+    {
+      "adminPassword": "adminpw",
+      "fullname": "peer2.farmer.example.com",
+      "mspid": "farmer-example-com",
+      "name": "peer2",
+      "oport": "8011",
+      "org": "farmer.example.com",
+      "port": "7011",
+      "portmap": "-p 7011:7051 -p 8011:7061",
+      "type": "peer",
+      "url": "192.168.0.103"
+    },
+    {
+      "adminPassword": "adminpw",
+      "fullname": "peer1.wholesaler.example.com",
+      "mspid": "wholesaler-example-com",
+      "name": "peer1",
+      "oport": "8012",
+      "org": "wholesaler.example.com",
+      "port": "7012",
+      "portmap": "-p 7012:7051 -p 8012:7061",
+      "type": "peer",
+      "url": "192.168.0.103"
+    },
+    {
+      "adminPassword": "adminpw",
+      "fullname": "peer2.wholesaler.example.com",
+      "mspid": "wholesaler-example-com",
+      "name": "peer2",
+      "oport": "8013",
+      "org": "wholesaler.example.com",
+      "port": "7013",
+      "portmap": "-p 7013:7051 -p 8013:7061",
+      "type": "peer",
+      "url": "192.168.0.103"
+    },
+    {
+      "adminPassword": "adminpw",
+      "fullname": "peer1.distributor.example.com",
+      "mspid": "distributor-example-com",
+      "name": "peer1",
+      "oport": "8014",
+      "org": "distributor.example.com",
+      "port": "7014",
+      "portmap": "-p 7014:7051 -p 8014:7061",
+      "type": "peer",
+      "url": "192.168.0.103"
+    },
+    {
+      "adminPassword": "adminpw",
+      "fullname": "peer2.distributor.example.com",
+      "mspid": "distributor-example-com",
+      "name": "peer2",
+      "oport": "8015",
+      "org": "distributor.example.com",
+      "port": "7015",
+      "portmap": "-p 7015:7051 -p 8015:7061",
+      "type": "peer",
+      "url": "192.168.0.103"
+    },
+    {
+      "adminPassword": "adminpw",
+      "fullname": "peer1.retailer.example.com",
+      "mspid": "retailer-example-com",
+      "name": "peer1",
+      "oport": "8016",
+      "org": "retailer.example.com",
+      "port": "7016",
+      "portmap": "-p 7016:7051 -p 8016:7061",
+      "type": "peer",
+      "url": "192.168.0.103"
+    },
+    {
+      "adminPassword": "adminpw",
+      "fullname": "peer2.retailer.example.com",
+      "mspid": "retailer-example-com",
+      "name": "peer2",
+      "oport": "8017",
+      "org": "retailer.example.com",
+      "port": "7017",
+      "portmap": "-p 7017:7051 -p 8017:7061",
+      "type": "peer",
+      "url": "192.168.0.103"
+    },
+    {
+      "adminPassword": "adminpw",
+      "fullname": "peer1.transporter.example.com",
+      "mspid": "transporter-example-com",
+      "name": "peer1",
+      "oport": "8018",
+      "org": "transporter.example.com",
+      "port": "7018",
+      "portmap": "-p 7018:7051 -p 8018:7061",
+      "type": "peer",
+      "url": "192.168.0.103"
+    },
+    {
+      "adminPassword": "adminpw",
+      "fullname": "peer2.transporter.example.com",
+      "mspid": "transporter-example-com",
+      "name": "peer2",
+      "oport": "8019",
+      "org": "transporter.example.com",
+      "port": "7019",
+      "portmap": "-p 7019:7051 -p 8019:7061",
+      "type": "peer",
+      "url": "192.168.0.103"
+    }
+  ],
+  "caorgs": [
+    "distributor.example.com",
+    "farmer.example.com",
+    "retailer.example.com",
+    "transporter.example.com",
+    "wholesaler.example.com"
+  ],
+  "console_port": "7034",
+  "explorer_port": "7032",
+  "ordererorgs": [
+    "example.com"
+  ],
+  "orgattrs": {
+    "distributor.example.com": {
+      "certpath": "peerOrganizations",
+      "mspid": "distributor-example-com"
+    },
+    "example.com": {
+      "certpath": "ordererOrganizations",
+      "mspid": "example-com"
+    },
+    "farmer.example.com": {
+      "certpath": "peerOrganizations",
+      "mspid": "farmer-example-com"
+    },
+    "retailer.example.com": {
+      "certpath": "peerOrganizations",
+      "mspid": "retailer-example-com"
+    },
+    "transporter.example.com": {
+      "certpath": "peerOrganizations",
+      "mspid": "transporter-example-com"
+    },
+    "wholesaler.example.com": {
+      "certpath": "peerOrganizations",
+      "mspid": "wholesaler-example-com"
+    }
+  },
+  "peerorgs": [
+    "distributor.example.com",
+    "farmer.example.com",
+    "retailer.example.com",
+    "transporter.example.com",
+    "wholesaler.example.com"
+  ],
+  "portainer_port": "7033"
+}

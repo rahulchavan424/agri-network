@@ -1,0 +1,62 @@
+{
+  "distributor-example-com": {
+    "AnchorPeers": {
+      "mod_policy": "Admins",
+      "value": {
+        "anchor_peers": [
+           { "host": "192.168.0.103", "port": "7014" },
+           { "host": "192.168.0.103", "port": "7015" }
+        ]
+      },
+      "version": "0"
+    }
+  },
+  "farmer-example-com": {
+    "AnchorPeers": {
+      "mod_policy": "Admins",
+      "value": {
+        "anchor_peers": [
+           { "host": "192.168.0.103", "port": "7010" },
+           { "host": "192.168.0.103", "port": "7011" }
+        ]
+      },
+      "version": "0"
+    }
+  },
+  "retailer-example-com": {
+    "AnchorPeers": {
+      "mod_policy": "Admins",
+      "value": {
+        "anchor_peers": [
+           { "host": "192.168.0.103", "port": "7016" },
+           { "host": "192.168.0.103", "port": "7017" }
+        ]
+      },
+      "version": "0"
+    }
+  },
+  "transporter-example-com": {
+    "AnchorPeers": {
+      "mod_policy": "Admins",
+      "value": {
+        "anchor_peers": [
+           { "host": "192.168.0.103", "port": "7018" },
+           { "host": "192.168.0.103", "port": "7019" }
+        ]
+      },
+      "version": "0"
+    }
+  },
+  "wholesaler-example-com": {
+    "AnchorPeers": {
+      "mod_policy": "Admins",
+      "value": {
+        "anchor_peers": [
+           { "host": "192.168.0.103", "port": "7012" },
+           { "host": "192.168.0.103", "port": "7013" }
+        ]
+      },
+      "version": "0"
+    }
+  }
+}

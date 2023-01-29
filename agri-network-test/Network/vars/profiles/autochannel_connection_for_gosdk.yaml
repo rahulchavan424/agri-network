@@ -1,0 +1,776 @@
+---
+# ROOTPATH should be set to the absolute path of crypto material starting directory
+# for example: export ROOTPATH=/home/ubuntu/mywork/vars/keyfiles
+"name": "5d1a9a92b2_net"
+"x-type": "hlfv-2.3.0"
+"version": "1.0.0"
+"client":
+  "organization": "transporter.example.com"
+  "cryptoconfig":
+    "path": "${ROOTPATH}"
+  "connection":
+    "timeout":
+      "peer":
+        "endorser": "300"
+        "eventHub": "300"
+        "eventReg": "300"
+      "orderer": "300"
+  "credentialStore":
+    "path": "/tmp/state-store"
+    "cryptoStore":
+      "path": "/tmp/msp"
+  "BCCSP":
+    "security":
+      "enabled": "true"
+      "default":
+        "provider": "SW"
+      "hashAlgorithm": "SHA2"
+      "softVerify": "true"
+      "level": "256"
+
+"channels":
+  "autochannel":
+    "orderers":
+    - "orderer.example.com"
+    "peers":
+      "peer1.farmer.example.com":
+        "endorsingPeer": true
+        "chaincodeQuery": true
+        "eventSource": true
+      "peer2.farmer.example.com":
+        "endorsingPeer": true
+        "chaincodeQuery": true
+        "eventSource": true
+      "peer1.wholesaler.example.com":
+        "endorsingPeer": true
+        "chaincodeQuery": true
+        "eventSource": true
+      "peer2.wholesaler.example.com":
+        "endorsingPeer": true
+        "chaincodeQuery": true
+        "eventSource": true
+      "peer1.distributor.example.com":
+        "endorsingPeer": true
+        "chaincodeQuery": true
+        "eventSource": true
+      "peer2.distributor.example.com":
+        "endorsingPeer": true
+        "chaincodeQuery": true
+        "eventSource": true
+      "peer1.retailer.example.com":
+        "endorsingPeer": true
+        "chaincodeQuery": true
+        "eventSource": true
+      "peer2.retailer.example.com":
+        "endorsingPeer": true
+        "chaincodeQuery": true
+        "eventSource": true
+      "peer1.transporter.example.com":
+        "endorsingPeer": true
+        "chaincodeQuery": true
+        "eventSource": true
+      "peer2.transporter.example.com":
+        "endorsingPeer": true
+        "chaincodeQuery": true
+        "eventSource": true
+
+"organizations":
+  "distributor.example.com":
+    "mspid": "distributor-example-com"
+    "cryptoPath": "peerOrganizations/distributor.example.com/users/{username}@distributor.example.com/msp"
+    "peers":
+    - "peer1.distributor.example.com"
+    - "peer2.distributor.example.com"
+    "certificateAuthorities":
+    - "ca1.distributor.example.com"
+    - "ca2.distributor.example.com"
+  "example.com":
+    "mspid": "example-com"
+    "cryptoPath": "ordererOrganizations/example.com/users/{username}@example.com/msp"
+    "orderers":
+    - "orderer.example.com"
+    "certificateAuthorities":
+  "farmer.example.com":
+    "mspid": "farmer-example-com"
+    "cryptoPath": "peerOrganizations/farmer.example.com/users/{username}@farmer.example.com/msp"
+    "peers":
+    - "peer1.farmer.example.com"
+    - "peer2.farmer.example.com"
+    "certificateAuthorities":
+    - "ca1.farmer.example.com"
+    - "ca2.farmer.example.com"
+  "retailer.example.com":
+    "mspid": "retailer-example-com"
+    "cryptoPath": "peerOrganizations/retailer.example.com/users/{username}@retailer.example.com/msp"
+    "peers":
+    - "peer1.retailer.example.com"
+    - "peer2.retailer.example.com"
+    "certificateAuthorities":
+    - "ca1.retailer.example.com"
+    - "ca2.retailer.example.com"
+  "transporter.example.com":
+    "mspid": "transporter-example-com"
+    "cryptoPath": "peerOrganizations/transporter.example.com/users/{username}@transporter.example.com/msp"
+    "peers":
+    - "peer1.transporter.example.com"
+    - "peer2.transporter.example.com"
+    "certificateAuthorities":
+    - "ca1.transporter.example.com"
+    - "ca2.transporter.example.com"
+  "wholesaler.example.com":
+    "mspid": "wholesaler-example-com"
+    "cryptoPath": "peerOrganizations/wholesaler.example.com/users/{username}@wholesaler.example.com/msp"
+    "peers":
+    - "peer1.wholesaler.example.com"
+    - "peer2.wholesaler.example.com"
+    "certificateAuthorities":
+    - "ca1.wholesaler.example.com"
+    - "ca2.wholesaler.example.com"
+
+"orderers":
+  "orderer.example.com":
+    "url": "grpcs://192.168.0.103:7030"
+    "grpcOptions":
+      "ssl-target-name-override": "orderer.example.com"
+    "tlsCACerts":
+      "pem": |
+        -----BEGIN CERTIFICATE-----
+        MIICojCCAkigAwIBAgIUR5+r1MsfQ4Qh6fCPdojUQfoTWvIwCgYIKoZIzj0EAwIw
+        ajELMAkGA1UEBhMCVVMxFzAVBgNVBAgMDk5vcnRoIENhcm9saW5hMRAwDgYDVQQH
+        DAdSYWxlaWdoMRQwEgYDVQQKDAtleGFtcGxlLmNvbTEaMBgGA1UEAwwRdGxzY2Eu
+        ZXhhbXBsZS5jb20wHhcNMjMwMTI5MDUyMzM1WhcNMzMwMTI2MDUyMzM1WjBqMQsw
+        CQYDVQQGEwJVUzEXMBUGA1UECAwOTm9ydGggQ2Fyb2xpbmExEDAOBgNVBAcMB1Jh
+        bGVpZ2gxFDASBgNVBAoMC2V4YW1wbGUuY29tMRowGAYDVQQDDBF0bHNjYS5leGFt
+        cGxlLmNvbTBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABEKDKZSpCpZ/bndX/Nac
+        piILFjDDDB8tZHzpxGwac0y0Ooc+Exksptcl5Xv7yHpXFJp14x8X+ktvNSZmp7eY
+        CNGjgcswgcgwHQYDVR0OBBYEFJMona5tdzpicbhUgnfhaFFbPpZnMB8GA1UdIwQY
+        MBaAFJMona5tdzpicbhUgnfhaFFbPpZnMA8GA1UdEwEB/wQFMAMBAf8wDgYDVR0P
+        AQH/BAQDAgGmMB0GA1UdJQQWMBQGCCsGAQUFBwMBBggrBgEFBQcDAjBGBgNVHREE
+        PzA9hwTAqABnghF0bHNjYS5leGFtcGxlLmNvbYIRdGxzY2EtZXhhbXBsZS1jb22C
+        CWxvY2FsaG9zdIcEfwAAATAKBggqhkjOPQQDAgNIADBFAiEAyqSdL7yrYDSwQyq8
+        f6agSSUdqOsi/phqG1GkOGAqnQgCIDzOJQRwDVvx7jROLaj2F/rRCUc5A9h8frZ1
+        4x6i5T8o
+        -----END CERTIFICATE-----
+
+"peers":
+  "peer1.farmer.example.com":
+    "url": "grpcs://192.168.0.103:7010"
+    "grpcOptions":
+      "ssl-target-name-override": "peer1.farmer.example.com"
+    "tlsCACerts":
+      "pem": |
+        -----BEGIN CERTIFICATE-----
+        MIIC0TCCAnagAwIBAgIUc3j2dwmy9h1t8mr6sojtmRbfRHYwCgYIKoZIzj0EAwIw
+        eTELMAkGA1UEBhMCVVMxFzAVBgNVBAgMDk5vcnRoIENhcm9saW5hMRAwDgYDVQQH
+        DAdSYWxlaWdoMRswGQYDVQQKDBJmYXJtZXIuZXhhbXBsZS5jb20xIjAgBgNVBAMM
+        GXRsc2NhMS5mYXJtZXIuZXhhbXBsZS5jb20wHhcNMjMwMTI5MDUyMzUyWhcNMzMw
+        MTI2MDUyMzUyWjB5MQswCQYDVQQGEwJVUzEXMBUGA1UECAwOTm9ydGggQ2Fyb2xp
+        bmExEDAOBgNVBAcMB1JhbGVpZ2gxGzAZBgNVBAoMEmZhcm1lci5leGFtcGxlLmNv
+        bTEiMCAGA1UEAwwZdGxzY2ExLmZhcm1lci5leGFtcGxlLmNvbTBZMBMGByqGSM49
+        AgEGCCqGSM49AwEHA0IABJQa5FAovBaQp+uVPA+nBNvN7LIMwYY3P3FAJ/1a51Fh
+        rPxxTCvjmi0MC5WAdc+IKN6gLob5qS0XtweVRJaBFE+jgdswgdgwHQYDVR0OBBYE
+        FN6okxVN0Rr9ognajpi2+xGel7QyMB8GA1UdIwQYMBaAFN6okxVN0Rr9ognajpi2
+        +xGel7QyMA8GA1UdEwEB/wQFMAMBAf8wDgYDVR0PAQH/BAQDAgGmMB0GA1UdJQQW
+        MBQGCCsGAQUFBwMBBggrBgEFBQcDAjBWBgNVHREETzBNhwTAqABnghl0bHNjYTEu
+        ZmFybWVyLmV4YW1wbGUuY29tghl0bHNjYTEtZmFybWVyLWV4YW1wbGUtY29tggls
+        b2NhbGhvc3SHBH8AAAEwCgYIKoZIzj0EAwIDSQAwRgIhAK0pb1WTogYHLdxaX0TU
+        e/4sfi1JF95MZd40BPHONZz9AiEA87633UWQEWNEan9SQJkoTaf2yhUBeQl+MPLR
+        abLV0uk=
+        -----END CERTIFICATE-----
+
+  "peer2.farmer.example.com":
+    "url": "grpcs://192.168.0.103:7011"
+    "grpcOptions":
+      "ssl-target-name-override": "peer2.farmer.example.com"
+    "tlsCACerts":
+      "pem": |
+        -----BEGIN CERTIFICATE-----
+        MIIC0TCCAnagAwIBAgIUc3j2dwmy9h1t8mr6sojtmRbfRHYwCgYIKoZIzj0EAwIw
+        eTELMAkGA1UEBhMCVVMxFzAVBgNVBAgMDk5vcnRoIENhcm9saW5hMRAwDgYDVQQH
+        DAdSYWxlaWdoMRswGQYDVQQKDBJmYXJtZXIuZXhhbXBsZS5jb20xIjAgBgNVBAMM
+        GXRsc2NhMS5mYXJtZXIuZXhhbXBsZS5jb20wHhcNMjMwMTI5MDUyMzUyWhcNMzMw
+        MTI2MDUyMzUyWjB5MQswCQYDVQQGEwJVUzEXMBUGA1UECAwOTm9ydGggQ2Fyb2xp
+        bmExEDAOBgNVBAcMB1JhbGVpZ2gxGzAZBgNVBAoMEmZhcm1lci5leGFtcGxlLmNv
+        bTEiMCAGA1UEAwwZdGxzY2ExLmZhcm1lci5leGFtcGxlLmNvbTBZMBMGByqGSM49
+        AgEGCCqGSM49AwEHA0IABJQa5FAovBaQp+uVPA+nBNvN7LIMwYY3P3FAJ/1a51Fh
+        rPxxTCvjmi0MC5WAdc+IKN6gLob5qS0XtweVRJaBFE+jgdswgdgwHQYDVR0OBBYE
+        FN6okxVN0Rr9ognajpi2+xGel7QyMB8GA1UdIwQYMBaAFN6okxVN0Rr9ognajpi2
+        +xGel7QyMA8GA1UdEwEB/wQFMAMBAf8wDgYDVR0PAQH/BAQDAgGmMB0GA1UdJQQW
+        MBQGCCsGAQUFBwMBBggrBgEFBQcDAjBWBgNVHREETzBNhwTAqABnghl0bHNjYTEu
+        ZmFybWVyLmV4YW1wbGUuY29tghl0bHNjYTEtZmFybWVyLWV4YW1wbGUtY29tggls
+        b2NhbGhvc3SHBH8AAAEwCgYIKoZIzj0EAwIDSQAwRgIhAK0pb1WTogYHLdxaX0TU
+        e/4sfi1JF95MZd40BPHONZz9AiEA87633UWQEWNEan9SQJkoTaf2yhUBeQl+MPLR
+        abLV0uk=
+        -----END CERTIFICATE-----
+
+  "peer1.wholesaler.example.com":
+    "url": "grpcs://192.168.0.103:7012"
+    "grpcOptions":
+      "ssl-target-name-override": "peer1.wholesaler.example.com"
+    "tlsCACerts":
+      "pem": |
+        -----BEGIN CERTIFICATE-----
+        MIIC6zCCApCgAwIBAgIULI+5ltaby6gjELQ6FPBwUHlWwJ8wCgYIKoZIzj0EAwIw
+        gYExCzAJBgNVBAYTAlVTMRcwFQYDVQQIDA5Ob3J0aCBDYXJvbGluYTEQMA4GA1UE
+        BwwHUmFsZWlnaDEfMB0GA1UECgwWd2hvbGVzYWxlci5leGFtcGxlLmNvbTEmMCQG
+        A1UEAwwddGxzY2ExLndob2xlc2FsZXIuZXhhbXBsZS5jb20wHhcNMjMwMTI5MDUy
+        NTAyWhcNMzMwMTI2MDUyNTAyWjCBgTELMAkGA1UEBhMCVVMxFzAVBgNVBAgMDk5v
+        cnRoIENhcm9saW5hMRAwDgYDVQQHDAdSYWxlaWdoMR8wHQYDVQQKDBZ3aG9sZXNh
+        bGVyLmV4YW1wbGUuY29tMSYwJAYDVQQDDB10bHNjYTEud2hvbGVzYWxlci5leGFt
+        cGxlLmNvbTBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABHB9eaaLJS+0ZBOmY7tz
+        EH2nb3hOwS0Dhkh37EFiUNcDB0M8cocdkkZ7TBHOjKqTN99yvYrk5DKQJi8yJmba
+        aaCjgeMwgeAwHQYDVR0OBBYEFAzfcckcT4owo5g60glBBsx+I8aKMB8GA1UdIwQY
+        MBaAFAzfcckcT4owo5g60glBBsx+I8aKMA8GA1UdEwEB/wQFMAMBAf8wDgYDVR0P
+        AQH/BAQDAgGmMB0GA1UdJQQWMBQGCCsGAQUFBwMBBggrBgEFBQcDAjBeBgNVHREE
+        VzBVhwTAqABngh10bHNjYTEud2hvbGVzYWxlci5leGFtcGxlLmNvbYIddGxzY2Ex
+        LXdob2xlc2FsZXItZXhhbXBsZS1jb22CCWxvY2FsaG9zdIcEfwAAATAKBggqhkjO
+        PQQDAgNJADBGAiEA3XlELcUP2HN22yFBKkKjXRgt2oKtG6TJqMI7zWgRHFMCIQCv
+        BdTI1YRDKnMKfDm00DpPvWajWMydPecmt1eBZ0O5lQ==
+        -----END CERTIFICATE-----
+
+  "peer2.wholesaler.example.com":
+    "url": "grpcs://192.168.0.103:7013"
+    "grpcOptions":
+      "ssl-target-name-override": "peer2.wholesaler.example.com"
+    "tlsCACerts":
+      "pem": |
+        -----BEGIN CERTIFICATE-----
+        MIIC6zCCApCgAwIBAgIULI+5ltaby6gjELQ6FPBwUHlWwJ8wCgYIKoZIzj0EAwIw
+        gYExCzAJBgNVBAYTAlVTMRcwFQYDVQQIDA5Ob3J0aCBDYXJvbGluYTEQMA4GA1UE
+        BwwHUmFsZWlnaDEfMB0GA1UECgwWd2hvbGVzYWxlci5leGFtcGxlLmNvbTEmMCQG
+        A1UEAwwddGxzY2ExLndob2xlc2FsZXIuZXhhbXBsZS5jb20wHhcNMjMwMTI5MDUy
+        NTAyWhcNMzMwMTI2MDUyNTAyWjCBgTELMAkGA1UEBhMCVVMxFzAVBgNVBAgMDk5v
+        cnRoIENhcm9saW5hMRAwDgYDVQQHDAdSYWxlaWdoMR8wHQYDVQQKDBZ3aG9sZXNh
+        bGVyLmV4YW1wbGUuY29tMSYwJAYDVQQDDB10bHNjYTEud2hvbGVzYWxlci5leGFt
+        cGxlLmNvbTBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABHB9eaaLJS+0ZBOmY7tz
+        EH2nb3hOwS0Dhkh37EFiUNcDB0M8cocdkkZ7TBHOjKqTN99yvYrk5DKQJi8yJmba
+        aaCjgeMwgeAwHQYDVR0OBBYEFAzfcckcT4owo5g60glBBsx+I8aKMB8GA1UdIwQY
+        MBaAFAzfcckcT4owo5g60glBBsx+I8aKMA8GA1UdEwEB/wQFMAMBAf8wDgYDVR0P
+        AQH/BAQDAgGmMB0GA1UdJQQWMBQGCCsGAQUFBwMBBggrBgEFBQcDAjBeBgNVHREE
+        VzBVhwTAqABngh10bHNjYTEud2hvbGVzYWxlci5leGFtcGxlLmNvbYIddGxzY2Ex
+        LXdob2xlc2FsZXItZXhhbXBsZS1jb22CCWxvY2FsaG9zdIcEfwAAATAKBggqhkjO
+        PQQDAgNJADBGAiEA3XlELcUP2HN22yFBKkKjXRgt2oKtG6TJqMI7zWgRHFMCIQCv
+        BdTI1YRDKnMKfDm00DpPvWajWMydPecmt1eBZ0O5lQ==
+        -----END CERTIFICATE-----
+
+  "peer1.distributor.example.com":
+    "url": "grpcs://192.168.0.103:7014"
+    "grpcOptions":
+      "ssl-target-name-override": "peer1.distributor.example.com"
+    "tlsCACerts":
+      "pem": |
+        -----BEGIN CERTIFICATE-----
+        MIIC8DCCApagAwIBAgIUGzVNkS7Z+XTpew5Vw8G+rCV6wWEwCgYIKoZIzj0EAwIw
+        gYMxCzAJBgNVBAYTAlVTMRcwFQYDVQQIDA5Ob3J0aCBDYXJvbGluYTEQMA4GA1UE
+        BwwHUmFsZWlnaDEgMB4GA1UECgwXZGlzdHJpYnV0b3IuZXhhbXBsZS5jb20xJzAl
+        BgNVBAMMHnRsc2NhMS5kaXN0cmlidXRvci5leGFtcGxlLmNvbTAeFw0yMzAxMjkw
+        NTIzMTJaFw0zMzAxMjYwNTIzMTJaMIGDMQswCQYDVQQGEwJVUzEXMBUGA1UECAwO
+        Tm9ydGggQ2Fyb2xpbmExEDAOBgNVBAcMB1JhbGVpZ2gxIDAeBgNVBAoMF2Rpc3Ry
+        aWJ1dG9yLmV4YW1wbGUuY29tMScwJQYDVQQDDB50bHNjYTEuZGlzdHJpYnV0b3Iu
+        ZXhhbXBsZS5jb20wWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAATE2YJSUcT2UApB
+        Wp6JK4agjO9HTpwUzehL4yD9NpTqliZGDhKjnG+j91JWMVA5da+oQAq49xR3KMiQ
+        6Rgs2p7go4HlMIHiMB0GA1UdDgQWBBTyo4IaY2u28I16ggyq+StiuZ8o5jAfBgNV
+        HSMEGDAWgBTyo4IaY2u28I16ggyq+StiuZ8o5jAPBgNVHRMBAf8EBTADAQH/MA4G
+        A1UdDwEB/wQEAwIBpjAdBgNVHSUEFjAUBggrBgEFBQcDAQYIKwYBBQUHAwIwYAYD
+        VR0RBFkwV4cEwKgAZ4IedGxzY2ExLmRpc3RyaWJ1dG9yLmV4YW1wbGUuY29tgh50
+        bHNjYTEtZGlzdHJpYnV0b3ItZXhhbXBsZS1jb22CCWxvY2FsaG9zdIcEfwAAATAK
+        BggqhkjOPQQDAgNIADBFAiAjMVcFyLAX8ocurTkdr60KKXMWA/hUWIr4SK1N+X1s
+        pgIhAKG6rsiq4iheSw0+7RDa7oeN8HHdWtyu5xYh1MU8hTMm
+        -----END CERTIFICATE-----
+
+  "peer2.distributor.example.com":
+    "url": "grpcs://192.168.0.103:7015"
+    "grpcOptions":
+      "ssl-target-name-override": "peer2.distributor.example.com"
+    "tlsCACerts":
+      "pem": |
+        -----BEGIN CERTIFICATE-----
+        MIIC8DCCApagAwIBAgIUGzVNkS7Z+XTpew5Vw8G+rCV6wWEwCgYIKoZIzj0EAwIw
+        gYMxCzAJBgNVBAYTAlVTMRcwFQYDVQQIDA5Ob3J0aCBDYXJvbGluYTEQMA4GA1UE
+        BwwHUmFsZWlnaDEgMB4GA1UECgwXZGlzdHJpYnV0b3IuZXhhbXBsZS5jb20xJzAl
+        BgNVBAMMHnRsc2NhMS5kaXN0cmlidXRvci5leGFtcGxlLmNvbTAeFw0yMzAxMjkw
+        NTIzMTJaFw0zMzAxMjYwNTIzMTJaMIGDMQswCQYDVQQGEwJVUzEXMBUGA1UECAwO
+        Tm9ydGggQ2Fyb2xpbmExEDAOBgNVBAcMB1JhbGVpZ2gxIDAeBgNVBAoMF2Rpc3Ry
+        aWJ1dG9yLmV4YW1wbGUuY29tMScwJQYDVQQDDB50bHNjYTEuZGlzdHJpYnV0b3Iu
+        ZXhhbXBsZS5jb20wWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAATE2YJSUcT2UApB
+        Wp6JK4agjO9HTpwUzehL4yD9NpTqliZGDhKjnG+j91JWMVA5da+oQAq49xR3KMiQ
+        6Rgs2p7go4HlMIHiMB0GA1UdDgQWBBTyo4IaY2u28I16ggyq+StiuZ8o5jAfBgNV
+        HSMEGDAWgBTyo4IaY2u28I16ggyq+StiuZ8o5jAPBgNVHRMBAf8EBTADAQH/MA4G
+        A1UdDwEB/wQEAwIBpjAdBgNVHSUEFjAUBggrBgEFBQcDAQYIKwYBBQUHAwIwYAYD
+        VR0RBFkwV4cEwKgAZ4IedGxzY2ExLmRpc3RyaWJ1dG9yLmV4YW1wbGUuY29tgh50
+        bHNjYTEtZGlzdHJpYnV0b3ItZXhhbXBsZS1jb22CCWxvY2FsaG9zdIcEfwAAATAK
+        BggqhkjOPQQDAgNIADBFAiAjMVcFyLAX8ocurTkdr60KKXMWA/hUWIr4SK1N+X1s
+        pgIhAKG6rsiq4iheSw0+7RDa7oeN8HHdWtyu5xYh1MU8hTMm
+        -----END CERTIFICATE-----
+
+  "peer1.retailer.example.com":
+    "url": "grpcs://192.168.0.103:7016"
+    "grpcOptions":
+      "ssl-target-name-override": "peer1.retailer.example.com"
+    "tlsCACerts":
+      "pem": |
+        -----BEGIN CERTIFICATE-----
+        MIIC3TCCAoKgAwIBAgIUXGhVlaFGX3RmKdXxms2KXz0k0/QwCgYIKoZIzj0EAwIw
+        fTELMAkGA1UEBhMCVVMxFzAVBgNVBAgMDk5vcnRoIENhcm9saW5hMRAwDgYDVQQH
+        DAdSYWxlaWdoMR0wGwYDVQQKDBRyZXRhaWxlci5leGFtcGxlLmNvbTEkMCIGA1UE
+        AwwbdGxzY2ExLnJldGFpbGVyLmV4YW1wbGUuY29tMB4XDTIzMDEyOTA1MjQxNVoX
+        DTMzMDEyNjA1MjQxNVowfTELMAkGA1UEBhMCVVMxFzAVBgNVBAgMDk5vcnRoIENh
+        cm9saW5hMRAwDgYDVQQHDAdSYWxlaWdoMR0wGwYDVQQKDBRyZXRhaWxlci5leGFt
+        cGxlLmNvbTEkMCIGA1UEAwwbdGxzY2ExLnJldGFpbGVyLmV4YW1wbGUuY29tMFkw
+        EwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEBQvkem/qT1jeQWk6dVAgWgKP4Y+VviXa
+        RHHWrxRFGHt+zS2hWKZ6ceWtF6IlhCkq0A9XcViie71iGvyBu8oyT6OB3zCB3DAd
+        BgNVHQ4EFgQUe+3facSf5WBHlkNCC9s4mxN1yY0wHwYDVR0jBBgwFoAUe+3facSf
+        5WBHlkNCC9s4mxN1yY0wDwYDVR0TAQH/BAUwAwEB/zAOBgNVHQ8BAf8EBAMCAaYw
+        HQYDVR0lBBYwFAYIKwYBBQUHAwEGCCsGAQUFBwMCMFoGA1UdEQRTMFGHBMCoAGeC
+        G3Rsc2NhMS5yZXRhaWxlci5leGFtcGxlLmNvbYIbdGxzY2ExLXJldGFpbGVyLWV4
+        YW1wbGUtY29tgglsb2NhbGhvc3SHBH8AAAEwCgYIKoZIzj0EAwIDSQAwRgIhAORC
+        9OhFLZRW6lhWEMWAEDk+Sq9HkKie3Tm+CSYy3uaLAiEAnDrsomaQqmbOL7x0V12g
+        ITggQ8QphPnzFtlNP3hzdmw=
+        -----END CERTIFICATE-----
+
+  "peer2.retailer.example.com":
+    "url": "grpcs://192.168.0.103:7017"
+    "grpcOptions":
+      "ssl-target-name-override": "peer2.retailer.example.com"
+    "tlsCACerts":
+      "pem": |
+        -----BEGIN CERTIFICATE-----
+        MIIC3TCCAoKgAwIBAgIUXGhVlaFGX3RmKdXxms2KXz0k0/QwCgYIKoZIzj0EAwIw
+        fTELMAkGA1UEBhMCVVMxFzAVBgNVBAgMDk5vcnRoIENhcm9saW5hMRAwDgYDVQQH
+        DAdSYWxlaWdoMR0wGwYDVQQKDBRyZXRhaWxlci5leGFtcGxlLmNvbTEkMCIGA1UE
+        AwwbdGxzY2ExLnJldGFpbGVyLmV4YW1wbGUuY29tMB4XDTIzMDEyOTA1MjQxNVoX
+        DTMzMDEyNjA1MjQxNVowfTELMAkGA1UEBhMCVVMxFzAVBgNVBAgMDk5vcnRoIENh
+        cm9saW5hMRAwDgYDVQQHDAdSYWxlaWdoMR0wGwYDVQQKDBRyZXRhaWxlci5leGFt
+        cGxlLmNvbTEkMCIGA1UEAwwbdGxzY2ExLnJldGFpbGVyLmV4YW1wbGUuY29tMFkw
+        EwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEBQvkem/qT1jeQWk6dVAgWgKP4Y+VviXa
+        RHHWrxRFGHt+zS2hWKZ6ceWtF6IlhCkq0A9XcViie71iGvyBu8oyT6OB3zCB3DAd
+        BgNVHQ4EFgQUe+3facSf5WBHlkNCC9s4mxN1yY0wHwYDVR0jBBgwFoAUe+3facSf
+        5WBHlkNCC9s4mxN1yY0wDwYDVR0TAQH/BAUwAwEB/zAOBgNVHQ8BAf8EBAMCAaYw
+        HQYDVR0lBBYwFAYIKwYBBQUHAwEGCCsGAQUFBwMCMFoGA1UdEQRTMFGHBMCoAGeC
+        G3Rsc2NhMS5yZXRhaWxlci5leGFtcGxlLmNvbYIbdGxzY2ExLXJldGFpbGVyLWV4
+        YW1wbGUtY29tgglsb2NhbGhvc3SHBH8AAAEwCgYIKoZIzj0EAwIDSQAwRgIhAORC
+        9OhFLZRW6lhWEMWAEDk+Sq9HkKie3Tm+CSYy3uaLAiEAnDrsomaQqmbOL7x0V12g
+        ITggQ8QphPnzFtlNP3hzdmw=
+        -----END CERTIFICATE-----
+
+  "peer1.transporter.example.com":
+    "url": "grpcs://192.168.0.103:7018"
+    "grpcOptions":
+      "ssl-target-name-override": "peer1.transporter.example.com"
+    "tlsCACerts":
+      "pem": |
+        -----BEGIN CERTIFICATE-----
+        MIIC8TCCApagAwIBAgIUOGBJjYNsBgVV6bIb+3eK51CGzyAwCgYIKoZIzj0EAwIw
+        gYMxCzAJBgNVBAYTAlVTMRcwFQYDVQQIDA5Ob3J0aCBDYXJvbGluYTEQMA4GA1UE
+        BwwHUmFsZWlnaDEgMB4GA1UECgwXdHJhbnNwb3J0ZXIuZXhhbXBsZS5jb20xJzAl
+        BgNVBAMMHnRsc2NhMS50cmFuc3BvcnRlci5leGFtcGxlLmNvbTAeFw0yMzAxMjkw
+        NTI0MzhaFw0zMzAxMjYwNTI0MzhaMIGDMQswCQYDVQQGEwJVUzEXMBUGA1UECAwO
+        Tm9ydGggQ2Fyb2xpbmExEDAOBgNVBAcMB1JhbGVpZ2gxIDAeBgNVBAoMF3RyYW5z
+        cG9ydGVyLmV4YW1wbGUuY29tMScwJQYDVQQDDB50bHNjYTEudHJhbnNwb3J0ZXIu
+        ZXhhbXBsZS5jb20wWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAATyUUPpircTsOLF
+        oAy3VXdqMDoNsGz09o9Jp0WO+zQxX7p38Es66d0fZo0X7TYedJ/WVtGKr8F3D3pH
+        xMgFLOIRo4HlMIHiMB0GA1UdDgQWBBR2qt76THZBRyQpc+5cvknqZ3y0DDAfBgNV
+        HSMEGDAWgBR2qt76THZBRyQpc+5cvknqZ3y0DDAPBgNVHRMBAf8EBTADAQH/MA4G
+        A1UdDwEB/wQEAwIBpjAdBgNVHSUEFjAUBggrBgEFBQcDAQYIKwYBBQUHAwIwYAYD
+        VR0RBFkwV4cEwKgAZ4IedGxzY2ExLnRyYW5zcG9ydGVyLmV4YW1wbGUuY29tgh50
+        bHNjYTEtdHJhbnNwb3J0ZXItZXhhbXBsZS1jb22CCWxvY2FsaG9zdIcEfwAAATAK
+        BggqhkjOPQQDAgNJADBGAiEAwPQhUGXAG8Gd+FT0IvIrPLJfDCfcZjazMuAmBu5y
+        9BMCIQCcc+j37DDW6oF63XYsMrY1WwNwSHT1eoxCiamnyoUz6Q==
+        -----END CERTIFICATE-----
+
+  "peer2.transporter.example.com":
+    "url": "grpcs://192.168.0.103:7019"
+    "grpcOptions":
+      "ssl-target-name-override": "peer2.transporter.example.com"
+    "tlsCACerts":
+      "pem": |
+        -----BEGIN CERTIFICATE-----
+        MIIC8TCCApagAwIBAgIUOGBJjYNsBgVV6bIb+3eK51CGzyAwCgYIKoZIzj0EAwIw
+        gYMxCzAJBgNVBAYTAlVTMRcwFQYDVQQIDA5Ob3J0aCBDYXJvbGluYTEQMA4GA1UE
+        BwwHUmFsZWlnaDEgMB4GA1UECgwXdHJhbnNwb3J0ZXIuZXhhbXBsZS5jb20xJzAl
+        BgNVBAMMHnRsc2NhMS50cmFuc3BvcnRlci5leGFtcGxlLmNvbTAeFw0yMzAxMjkw
+        NTI0MzhaFw0zMzAxMjYwNTI0MzhaMIGDMQswCQYDVQQGEwJVUzEXMBUGA1UECAwO
+        Tm9ydGggQ2Fyb2xpbmExEDAOBgNVBAcMB1JhbGVpZ2gxIDAeBgNVBAoMF3RyYW5z
+        cG9ydGVyLmV4YW1wbGUuY29tMScwJQYDVQQDDB50bHNjYTEudHJhbnNwb3J0ZXIu
+        ZXhhbXBsZS5jb20wWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAATyUUPpircTsOLF
+        oAy3VXdqMDoNsGz09o9Jp0WO+zQxX7p38Es66d0fZo0X7TYedJ/WVtGKr8F3D3pH
+        xMgFLOIRo4HlMIHiMB0GA1UdDgQWBBR2qt76THZBRyQpc+5cvknqZ3y0DDAfBgNV
+        HSMEGDAWgBR2qt76THZBRyQpc+5cvknqZ3y0DDAPBgNVHRMBAf8EBTADAQH/MA4G
+        A1UdDwEB/wQEAwIBpjAdBgNVHSUEFjAUBggrBgEFBQcDAQYIKwYBBQUHAwIwYAYD
+        VR0RBFkwV4cEwKgAZ4IedGxzY2ExLnRyYW5zcG9ydGVyLmV4YW1wbGUuY29tgh50
+        bHNjYTEtdHJhbnNwb3J0ZXItZXhhbXBsZS1jb22CCWxvY2FsaG9zdIcEfwAAATAK
+        BggqhkjOPQQDAgNJADBGAiEAwPQhUGXAG8Gd+FT0IvIrPLJfDCfcZjazMuAmBu5y
+        9BMCIQCcc+j37DDW6oF63XYsMrY1WwNwSHT1eoxCiamnyoUz6Q==
+        -----END CERTIFICATE-----
+
+"certificateAuthorities":
+  "ca1.farmer.example.com":
+    "url": "https://192.168.0.103:7000"
+    "tlsCACerts":
+      "pem":
+      - |
+        -----BEGIN CERTIFICATE-----
+        MIICxDCCAmqgAwIBAgIUNqEJSSwsDYJdAlvbebNVRozr7jQwCgYIKoZIzj0EAwIw
+        djELMAkGA1UEBhMCVVMxFzAVBgNVBAgMDk5vcnRoIENhcm9saW5hMRAwDgYDVQQH
+        DAdSYWxlaWdoMRswGQYDVQQKDBJmYXJtZXIuZXhhbXBsZS5jb20xHzAdBgNVBAMM
+        FmNhMS5mYXJtZXIuZXhhbXBsZS5jb20wHhcNMjMwMTI5MDUyMzUyWhcNMzMwMTI2
+        MDUyMzUyWjB2MQswCQYDVQQGEwJVUzEXMBUGA1UECAwOTm9ydGggQ2Fyb2xpbmEx
+        EDAOBgNVBAcMB1JhbGVpZ2gxGzAZBgNVBAoMEmZhcm1lci5leGFtcGxlLmNvbTEf
+        MB0GA1UEAwwWY2ExLmZhcm1lci5leGFtcGxlLmNvbTBZMBMGByqGSM49AgEGCCqG
+        SM49AwEHA0IABA20HUP941e1AD+Hgo88rebVAe9SFAw3CPjyHPMXUJ0/5dD0/yoT
+        a+PfhbOjPw+QV7vAe64IXj3jEXDo5u5apAejgdUwgdIwHQYDVR0OBBYEFOrx+2jK
+        3Qvl7K8BUsQ3pk6Hns55MB8GA1UdIwQYMBaAFOrx+2jK3Qvl7K8BUsQ3pk6Hns55
+        MA8GA1UdEwEB/wQFMAMBAf8wDgYDVR0PAQH/BAQDAgGmMB0GA1UdJQQWMBQGCCsG
+        AQUFBwMBBggrBgEFBQcDAjBQBgNVHREESTBHhwTAqABnghZjYTEuZmFybWVyLmV4
+        YW1wbGUuY29tghZjYTEtZmFybWVyLWV4YW1wbGUtY29tgglsb2NhbGhvc3SHBH8A
+        AAEwCgYIKoZIzj0EAwIDSAAwRQIhALF+BDyhnc7a2zcgoRstTxBaXAWnEEmXBkSP
+        YdI/ceXSAiA+wi8T5v2Ngg/28U69ZBjJ377zW02fmpybHpvUu4z/lQ==
+        -----END CERTIFICATE-----
+
+    "httpOptions":
+      "verify": "false"
+    "caName": "ca1"
+    "registrar":
+      "enrollId": "admin"
+      "enrollSecret": "adminpw"
+  "ca2.farmer.example.com":
+    "url": "https://192.168.0.103:7001"
+    "tlsCACerts":
+      "pem":
+      - |
+        -----BEGIN CERTIFICATE-----
+        MIICFzCCAb2gAwIBAgIUFlMyXD01XNgcuagiFJX+lZX24vQwCgYIKoZIzj0EAwIw
+        aDELMAkGA1UEBhMCVVMxFzAVBgNVBAgTDk5vcnRoIENhcm9saW5hMRQwEgYDVQQK
+        EwtIeXBlcmxlZGdlcjEPMA0GA1UECxMGRmFicmljMRkwFwYDVQQDExBmYWJyaWMt
+        Y2Etc2VydmVyMB4XDTIzMDEyOTA1MjEwMFoXDTM4MDEyNTA1MjEwMFowaDELMAkG
+        A1UEBhMCVVMxFzAVBgNVBAgTDk5vcnRoIENhcm9saW5hMRQwEgYDVQQKEwtIeXBl
+        cmxlZGdlcjEPMA0GA1UECxMGRmFicmljMRkwFwYDVQQDExBmYWJyaWMtY2Etc2Vy
+        dmVyMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEGx4Sg0nvSs7Wvw7glHuFAusx
+        kG8awu6a3LP8dGzwYzotBSjc2ANAbnF/5VP7URifN59OapFjSzdMc0E+gFYYvaNF
+        MEMwDgYDVR0PAQH/BAQDAgEGMBIGA1UdEwEB/wQIMAYBAf8CAQEwHQYDVR0OBBYE
+        FPg557eTcV0bZC/8rTtQXSaNvzhrMAoGCCqGSM49BAMCA0gAMEUCIQDqb4hhSk3h
+        v/MIJh3gnl8KiADcJbKetWWanBDC4ZQ8CgIgGqLs8PW9Q5gJCuWGt4Xd4U4858XM
+        QOqmjbk80YAPggk=
+        -----END CERTIFICATE-----
+
+    "httpOptions":
+      "verify": "false"
+    "caName": "ca2"
+    "registrar":
+      "enrollId": "admin"
+      "enrollSecret": "adminpw"
+  "ca1.wholesaler.example.com":
+    "url": "https://192.168.0.103:7002"
+    "tlsCACerts":
+      "pem":
+      - |
+        -----BEGIN CERTIFICATE-----
+        MIIC2zCCAoKgAwIBAgIUQAurW7r5x43heEtp7H7IHMzSFjAwCgYIKoZIzj0EAwIw
+        fjELMAkGA1UEBhMCVVMxFzAVBgNVBAgMDk5vcnRoIENhcm9saW5hMRAwDgYDVQQH
+        DAdSYWxlaWdoMR8wHQYDVQQKDBZ3aG9sZXNhbGVyLmV4YW1wbGUuY29tMSMwIQYD
+        VQQDDBpjYTEud2hvbGVzYWxlci5leGFtcGxlLmNvbTAeFw0yMzAxMjkwNTI1MDFa
+        Fw0zMzAxMjYwNTI1MDFaMH4xCzAJBgNVBAYTAlVTMRcwFQYDVQQIDA5Ob3J0aCBD
+        YXJvbGluYTEQMA4GA1UEBwwHUmFsZWlnaDEfMB0GA1UECgwWd2hvbGVzYWxlci5l
+        eGFtcGxlLmNvbTEjMCEGA1UEAwwaY2ExLndob2xlc2FsZXIuZXhhbXBsZS5jb20w
+        WTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAARBxE/n5btZliLHwrLd8enmtRjMFqTz
+        nKhfyPEWrozE+/6ACABdRSW1fsJtdg+n3KDNR4m/wsumBHtVYphjO0hwo4HdMIHa
+        MB0GA1UdDgQWBBSrNG/FnapICFx5Yp4QZkGHx+IKqzAfBgNVHSMEGDAWgBSrNG/F
+        napICFx5Yp4QZkGHx+IKqzAPBgNVHRMBAf8EBTADAQH/MA4GA1UdDwEB/wQEAwIB
+        pjAdBgNVHSUEFjAUBggrBgEFBQcDAQYIKwYBBQUHAwIwWAYDVR0RBFEwT4cEwKgA
+        Z4IaY2ExLndob2xlc2FsZXIuZXhhbXBsZS5jb22CGmNhMS13aG9sZXNhbGVyLWV4
+        YW1wbGUtY29tgglsb2NhbGhvc3SHBH8AAAEwCgYIKoZIzj0EAwIDRwAwRAIgIoCl
+        MgoqN3pMo9IwP4uXnIxdWDltK1cZ/LXn7eGnbm4CIHT7bPs6VcvcHnJKoJ8yLTU/
+        C7aWZZT8J6EvCPY3GnoQ
+        -----END CERTIFICATE-----
+
+    "httpOptions":
+      "verify": "false"
+    "caName": "ca1"
+    "registrar":
+      "enrollId": "admin"
+      "enrollSecret": "adminpw"
+  "ca2.wholesaler.example.com":
+    "url": "https://192.168.0.103:7003"
+    "tlsCACerts":
+      "pem":
+      - |
+        -----BEGIN CERTIFICATE-----
+        MIICFzCCAb2gAwIBAgIUZ1G7ZKsMvVC9rexGLs56DVqgtQEwCgYIKoZIzj0EAwIw
+        aDELMAkGA1UEBhMCVVMxFzAVBgNVBAgTDk5vcnRoIENhcm9saW5hMRQwEgYDVQQK
+        EwtIeXBlcmxlZGdlcjEPMA0GA1UECxMGRmFicmljMRkwFwYDVQQDExBmYWJyaWMt
+        Y2Etc2VydmVyMB4XDTIzMDEyOTA1MjEwMFoXDTM4MDEyNTA1MjEwMFowaDELMAkG
+        A1UEBhMCVVMxFzAVBgNVBAgTDk5vcnRoIENhcm9saW5hMRQwEgYDVQQKEwtIeXBl
+        cmxlZGdlcjEPMA0GA1UECxMGRmFicmljMRkwFwYDVQQDExBmYWJyaWMtY2Etc2Vy
+        dmVyMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEDjArR/8yYLF5DxstD2jK6BXK
+        FgfznQQyY/ymDYOTSIHtLJbaAlw9hOLjdJScniDkzZGlUiKod0swGU+vHKCTNaNF
+        MEMwDgYDVR0PAQH/BAQDAgEGMBIGA1UdEwEB/wQIMAYBAf8CAQEwHQYDVR0OBBYE
+        FCR3kF+8O7l77LjLHnSyKiIwGl/HMAoGCCqGSM49BAMCA0gAMEUCIQC/r8jnXNtz
+        RgvCRbLI/hka+RK/4rRwK9zJFgGMbLEXaQIgNUrwXvzn+tHD/CInxlro1WwMdXL0
+        i6+CHhEq0Bahv2A=
+        -----END CERTIFICATE-----
+
+    "httpOptions":
+      "verify": "false"
+    "caName": "ca2"
+    "registrar":
+      "enrollId": "admin"
+      "enrollSecret": "adminpw"
+  "ca1.distributor.example.com":
+    "url": "https://192.168.0.103:7004"
+    "tlsCACerts":
+      "pem":
+      - |
+        -----BEGIN CERTIFICATE-----
+        MIIC5TCCAoqgAwIBAgIUephLmpT/04XIQzLwAqLon39MdOEwCgYIKoZIzj0EAwIw
+        gYAxCzAJBgNVBAYTAlVTMRcwFQYDVQQIDA5Ob3J0aCBDYXJvbGluYTEQMA4GA1UE
+        BwwHUmFsZWlnaDEgMB4GA1UECgwXZGlzdHJpYnV0b3IuZXhhbXBsZS5jb20xJDAi
+        BgNVBAMMG2NhMS5kaXN0cmlidXRvci5leGFtcGxlLmNvbTAeFw0yMzAxMjkwNTIz
+        MTJaFw0zMzAxMjYwNTIzMTJaMIGAMQswCQYDVQQGEwJVUzEXMBUGA1UECAwOTm9y
+        dGggQ2Fyb2xpbmExEDAOBgNVBAcMB1JhbGVpZ2gxIDAeBgNVBAoMF2Rpc3RyaWJ1
+        dG9yLmV4YW1wbGUuY29tMSQwIgYDVQQDDBtjYTEuZGlzdHJpYnV0b3IuZXhhbXBs
+        ZS5jb20wWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAAT2nId8E7NSFrGXVVtLJUXo
+        Purmz+Y7MW+12D67wdp1+pAoAIlBZx6XXm5/LCQh4/hXh/4YIkcnm3+aDlddOTmP
+        o4HfMIHcMB0GA1UdDgQWBBS3DPiZncFKazXGkKzDqNYqvVuydTAfBgNVHSMEGDAW
+        gBS3DPiZncFKazXGkKzDqNYqvVuydTAPBgNVHRMBAf8EBTADAQH/MA4GA1UdDwEB
+        /wQEAwIBpjAdBgNVHSUEFjAUBggrBgEFBQcDAQYIKwYBBQUHAwIwWgYDVR0RBFMw
+        UYcEwKgAZ4IbY2ExLmRpc3RyaWJ1dG9yLmV4YW1wbGUuY29tghtjYTEtZGlzdHJp
+        YnV0b3ItZXhhbXBsZS1jb22CCWxvY2FsaG9zdIcEfwAAATAKBggqhkjOPQQDAgNJ
+        ADBGAiEA8m6HyekNl+mNG5tsTXjR9Po3TGxjxTOrxJyyzizOGAcCIQDsWrewGtFY
+        q3x82T6oIQMb2wGFbjjw6MjTVtVG4oqoCA==
+        -----END CERTIFICATE-----
+
+    "httpOptions":
+      "verify": "false"
+    "caName": "ca1"
+    "registrar":
+      "enrollId": "admin"
+      "enrollSecret": "adminpw"
+  "ca2.distributor.example.com":
+    "url": "https://192.168.0.103:7005"
+    "tlsCACerts":
+      "pem":
+      - |
+        -----BEGIN CERTIFICATE-----
+        MIICFjCCAb2gAwIBAgIUUyaK1VMwkT8NelWLml0ZppfFGnAwCgYIKoZIzj0EAwIw
+        aDELMAkGA1UEBhMCVVMxFzAVBgNVBAgTDk5vcnRoIENhcm9saW5hMRQwEgYDVQQK
+        EwtIeXBlcmxlZGdlcjEPMA0GA1UECxMGRmFicmljMRkwFwYDVQQDExBmYWJyaWMt
+        Y2Etc2VydmVyMB4XDTIzMDEyOTA1MjEwMFoXDTM4MDEyNTA1MjEwMFowaDELMAkG
+        A1UEBhMCVVMxFzAVBgNVBAgTDk5vcnRoIENhcm9saW5hMRQwEgYDVQQKEwtIeXBl
+        cmxlZGdlcjEPMA0GA1UECxMGRmFicmljMRkwFwYDVQQDExBmYWJyaWMtY2Etc2Vy
+        dmVyMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEOMZVrZjzYSQK24hHCIRsJihd
+        dj+TzDpGZRe3XUEMT9mfO9k9nYj2HQ3GUoIdJQ5hfES2qxw2S7u5YchhP7In0qNF
+        MEMwDgYDVR0PAQH/BAQDAgEGMBIGA1UdEwEB/wQIMAYBAf8CAQEwHQYDVR0OBBYE
+        FFvD6ojVIFhid0nQPvWl38Y/PH51MAoGCCqGSM49BAMCA0cAMEQCIFt2pkbib6AF
+        YW8Da8oZ7eetdqv+txW0jo43gb+ZKABzAiBU9vnRr1xE5Mv+PHWruti2KqfmihKC
+        eF4Kjrm+5jtmHA==
+        -----END CERTIFICATE-----
+
+    "httpOptions":
+      "verify": "false"
+    "caName": "ca2"
+    "registrar":
+      "enrollId": "admin"
+      "enrollSecret": "adminpw"
+  "ca1.retailer.example.com":
+    "url": "https://192.168.0.103:7006"
+    "tlsCACerts":
+      "pem":
+      - |
+        -----BEGIN CERTIFICATE-----
+        MIIC0TCCAnagAwIBAgIUMN0lo2blu0/+t7hR/lqS72SOU5owCgYIKoZIzj0EAwIw
+        ejELMAkGA1UEBhMCVVMxFzAVBgNVBAgMDk5vcnRoIENhcm9saW5hMRAwDgYDVQQH
+        DAdSYWxlaWdoMR0wGwYDVQQKDBRyZXRhaWxlci5leGFtcGxlLmNvbTEhMB8GA1UE
+        AwwYY2ExLnJldGFpbGVyLmV4YW1wbGUuY29tMB4XDTIzMDEyOTA1MjQxNVoXDTMz
+        MDEyNjA1MjQxNVowejELMAkGA1UEBhMCVVMxFzAVBgNVBAgMDk5vcnRoIENhcm9s
+        aW5hMRAwDgYDVQQHDAdSYWxlaWdoMR0wGwYDVQQKDBRyZXRhaWxlci5leGFtcGxl
+        LmNvbTEhMB8GA1UEAwwYY2ExLnJldGFpbGVyLmV4YW1wbGUuY29tMFkwEwYHKoZI
+        zj0CAQYIKoZIzj0DAQcDQgAEDU9ereQA5wUpTeQjBZ4B0xQfUu4dUx7Qc6zlPJhe
+        gcUUdoFuly9ff55HGBizrUhBGNr5J/LyoJrxJgQvOBDKqaOB2TCB1jAdBgNVHQ4E
+        FgQU+RKGCvyHW3dFjcDMWLuDmNbHBHswHwYDVR0jBBgwFoAU+RKGCvyHW3dFjcDM
+        WLuDmNbHBHswDwYDVR0TAQH/BAUwAwEB/zAOBgNVHQ8BAf8EBAMCAaYwHQYDVR0l
+        BBYwFAYIKwYBBQUHAwEGCCsGAQUFBwMCMFQGA1UdEQRNMEuHBMCoAGeCGGNhMS5y
+        ZXRhaWxlci5leGFtcGxlLmNvbYIYY2ExLXJldGFpbGVyLWV4YW1wbGUtY29tggls
+        b2NhbGhvc3SHBH8AAAEwCgYIKoZIzj0EAwIDSQAwRgIhAOIwZmSKXU5EsQLNOKg6
+        w6gUw1fEqkQSEFTXgGQhv0s1AiEAzeE1X7ZinP4Jh4ReDKCk1cwjUNkehyvBW/xW
+        ylXJ1tI=
+        -----END CERTIFICATE-----
+
+    "httpOptions":
+      "verify": "false"
+    "caName": "ca1"
+    "registrar":
+      "enrollId": "admin"
+      "enrollSecret": "adminpw"
+  "ca2.retailer.example.com":
+    "url": "https://192.168.0.103:7007"
+    "tlsCACerts":
+      "pem":
+      - |
+        -----BEGIN CERTIFICATE-----
+        MIICFzCCAb2gAwIBAgIUJ9P5rz+fzNOf2rbS1iIeDS72oGkwCgYIKoZIzj0EAwIw
+        aDELMAkGA1UEBhMCVVMxFzAVBgNVBAgTDk5vcnRoIENhcm9saW5hMRQwEgYDVQQK
+        EwtIeXBlcmxlZGdlcjEPMA0GA1UECxMGRmFicmljMRkwFwYDVQQDExBmYWJyaWMt
+        Y2Etc2VydmVyMB4XDTIzMDEyOTA1MjEwMFoXDTM4MDEyNTA1MjEwMFowaDELMAkG
+        A1UEBhMCVVMxFzAVBgNVBAgTDk5vcnRoIENhcm9saW5hMRQwEgYDVQQKEwtIeXBl
+        cmxlZGdlcjEPMA0GA1UECxMGRmFicmljMRkwFwYDVQQDExBmYWJyaWMtY2Etc2Vy
+        dmVyMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAESg0CTGG2XSZ9OpzzZJHSRMVZ
+        38rmGE/y0lzIvfdjsR0YElI4uwWZUTlgPuhETEMeKZGmMhgZNkUaiMeagfMeG6NF
+        MEMwDgYDVR0PAQH/BAQDAgEGMBIGA1UdEwEB/wQIMAYBAf8CAQEwHQYDVR0OBBYE
+        FD+s3weZGkIkYcaHEVhZLjNIW879MAoGCCqGSM49BAMCA0gAMEUCIQCw3HztzGbK
+        AaED0gds+ch93ASPNlpRlYdq+QsRoJdJ4wIgMCLYZzmWkLzTKeojzkT8i/L/odpD
+        0/2uwIRAwCSS9sU=
+        -----END CERTIFICATE-----
+
+    "httpOptions":
+      "verify": "false"
+    "caName": "ca2"
+    "registrar":
+      "enrollId": "admin"
+      "enrollSecret": "adminpw"
+  "ca1.transporter.example.com":
+    "url": "https://192.168.0.103:7008"
+    "tlsCACerts":
+      "pem":
+      - |
+        -----BEGIN CERTIFICATE-----
+        MIIC5TCCAoqgAwIBAgIUBkubAGolz/IG3DsyhJ4r1771ZIwwCgYIKoZIzj0EAwIw
+        gYAxCzAJBgNVBAYTAlVTMRcwFQYDVQQIDA5Ob3J0aCBDYXJvbGluYTEQMA4GA1UE
+        BwwHUmFsZWlnaDEgMB4GA1UECgwXdHJhbnNwb3J0ZXIuZXhhbXBsZS5jb20xJDAi
+        BgNVBAMMG2NhMS50cmFuc3BvcnRlci5leGFtcGxlLmNvbTAeFw0yMzAxMjkwNTI0
+        MzhaFw0zMzAxMjYwNTI0MzhaMIGAMQswCQYDVQQGEwJVUzEXMBUGA1UECAwOTm9y
+        dGggQ2Fyb2xpbmExEDAOBgNVBAcMB1JhbGVpZ2gxIDAeBgNVBAoMF3RyYW5zcG9y
+        dGVyLmV4YW1wbGUuY29tMSQwIgYDVQQDDBtjYTEudHJhbnNwb3J0ZXIuZXhhbXBs
+        ZS5jb20wWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAARnqKFwsTeP/4AGmcXY80wj
+        tgle7BtZA0biLoxLsFJNgmroGN3QNxCCiEdVVW5BsduQWUhEkvxQ8eTPYcvXSHUk
+        o4HfMIHcMB0GA1UdDgQWBBSrRK/TTEGs/z7qp5lZ0/Zsdyj9eDAfBgNVHSMEGDAW
+        gBSrRK/TTEGs/z7qp5lZ0/Zsdyj9eDAPBgNVHRMBAf8EBTADAQH/MA4GA1UdDwEB
+        /wQEAwIBpjAdBgNVHSUEFjAUBggrBgEFBQcDAQYIKwYBBQUHAwIwWgYDVR0RBFMw
+        UYcEwKgAZ4IbY2ExLnRyYW5zcG9ydGVyLmV4YW1wbGUuY29tghtjYTEtdHJhbnNw
+        b3J0ZXItZXhhbXBsZS1jb22CCWxvY2FsaG9zdIcEfwAAATAKBggqhkjOPQQDAgNJ
+        ADBGAiEA3CX2yeVq8af9AsLFQWb4gDxfeYbiiL5MzrGvNURZh4MCIQCR+OV1Ot+8
+        ZIYIcbWN61eiePb4hppxmtz622GHuTLj7A==
+        -----END CERTIFICATE-----
+
+    "httpOptions":
+      "verify": "false"
+    "caName": "ca1"
+    "registrar":
+      "enrollId": "admin"
+      "enrollSecret": "adminpw"
+  "ca2.transporter.example.com":
+    "url": "https://192.168.0.103:7009"
+    "tlsCACerts":
+      "pem":
+      - |
+        -----BEGIN CERTIFICATE-----
+        MIICFzCCAb2gAwIBAgIUXJ4ZVNSklF6XvJ9Xunqs3TbtpNYwCgYIKoZIzj0EAwIw
+        aDELMAkGA1UEBhMCVVMxFzAVBgNVBAgTDk5vcnRoIENhcm9saW5hMRQwEgYDVQQK
+        EwtIeXBlcmxlZGdlcjEPMA0GA1UECxMGRmFicmljMRkwFwYDVQQDExBmYWJyaWMt
+        Y2Etc2VydmVyMB4XDTIzMDEyOTA1MjEwMFoXDTM4MDEyNTA1MjEwMFowaDELMAkG
+        A1UEBhMCVVMxFzAVBgNVBAgTDk5vcnRoIENhcm9saW5hMRQwEgYDVQQKEwtIeXBl
+        cmxlZGdlcjEPMA0GA1UECxMGRmFicmljMRkwFwYDVQQDExBmYWJyaWMtY2Etc2Vy
+        dmVyMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEOEE802BhAl4VEyNc9+1ovd65
+        +mUP42t6u3nt2DVdtdmlyCLxhcjrhF6qF/umm9NJgvCaHKlOYS4skst/u/jRgqNF
+        MEMwDgYDVR0PAQH/BAQDAgEGMBIGA1UdEwEB/wQIMAYBAf8CAQEwHQYDVR0OBBYE
+        FG4QSzBr2447z9bFmOStJalLU0e6MAoGCCqGSM49BAMCA0gAMEUCIQC5X5y9M4HZ
+        wH0p6AG1KE6SK4345r2RVyerWZY+APUUHwIgAevsA+xt4tXF6ygww75QMNBkY9DF
+        gEViq2rJEm0Q/vg=
+        -----END CERTIFICATE-----
+
+    "httpOptions":
+      "verify": "false"
+    "caName": "ca2"
+    "registrar":
+      "enrollId": "admin"
+      "enrollSecret": "adminpw"
+
+"entityMatchers":
+  "orderer":
+  - "mappedHost": "orderer.example.com"
+    "pattern": "(\\w*)orderer.example.com(\\w*)"
+    "sslTargetOverrideUrlSubstitutionExp": "orderer.example.com"
+    "urlSubstitutionExp": "192.168.0.103:7030"
+  
+  "peer":
+  - "mappedHost": "peer1.farmer.example.com"
+    "pattern": "(\\w*)peer1.farmer.example.com(\\w*)"
+    "sslTargetOverrideUrlSubstitutionExp": "peer1.farmer.example.com"
+    "urlSubstitutionExp": "192.168.0.103:7010"
+  - "mappedHost": "peer2.farmer.example.com"
+    "pattern": "(\\w*)peer2.farmer.example.com(\\w*)"
+    "sslTargetOverrideUrlSubstitutionExp": "peer2.farmer.example.com"
+    "urlSubstitutionExp": "192.168.0.103:7011"
+  - "mappedHost": "peer1.wholesaler.example.com"
+    "pattern": "(\\w*)peer1.wholesaler.example.com(\\w*)"
+    "sslTargetOverrideUrlSubstitutionExp": "peer1.wholesaler.example.com"
+    "urlSubstitutionExp": "192.168.0.103:7012"
+  - "mappedHost": "peer2.wholesaler.example.com"
+    "pattern": "(\\w*)peer2.wholesaler.example.com(\\w*)"
+    "sslTargetOverrideUrlSubstitutionExp": "peer2.wholesaler.example.com"
+    "urlSubstitutionExp": "192.168.0.103:7013"
+  - "mappedHost": "peer1.distributor.example.com"
+    "pattern": "(\\w*)peer1.distributor.example.com(\\w*)"
+    "sslTargetOverrideUrlSubstitutionExp": "peer1.distributor.example.com"
+    "urlSubstitutionExp": "192.168.0.103:7014"
+  - "mappedHost": "peer2.distributor.example.com"
+    "pattern": "(\\w*)peer2.distributor.example.com(\\w*)"
+    "sslTargetOverrideUrlSubstitutionExp": "peer2.distributor.example.com"
+    "urlSubstitutionExp": "192.168.0.103:7015"
+  - "mappedHost": "peer1.retailer.example.com"
+    "pattern": "(\\w*)peer1.retailer.example.com(\\w*)"
+    "sslTargetOverrideUrlSubstitutionExp": "peer1.retailer.example.com"
+    "urlSubstitutionExp": "192.168.0.103:7016"
+  - "mappedHost": "peer2.retailer.example.com"
+    "pattern": "(\\w*)peer2.retailer.example.com(\\w*)"
+    "sslTargetOverrideUrlSubstitutionExp": "peer2.retailer.example.com"
+    "urlSubstitutionExp": "192.168.0.103:7017"
+  - "mappedHost": "peer1.transporter.example.com"
+    "pattern": "(\\w*)peer1.transporter.example.com(\\w*)"
+    "sslTargetOverrideUrlSubstitutionExp": "peer1.transporter.example.com"
+    "urlSubstitutionExp": "192.168.0.103:7018"
+  - "mappedHost": "peer2.transporter.example.com"
+    "pattern": "(\\w*)peer2.transporter.example.com(\\w*)"
+    "sslTargetOverrideUrlSubstitutionExp": "peer2.transporter.example.com"
+    "urlSubstitutionExp": "192.168.0.103:7019"
+  
+  "certificateAuthorities":
+  - "mappedHost": "ca1.farmer.example.com"
+    "pattern": "(\\w*)ca1.farmer.example.com(\\w*)"
+    "sslTargetOverrideUrlSubstitutionExp": "ca1.farmer.example.com"
+    "urlSubstitutionExp": "192.168.0.103:7000"
+  - "mappedHost": "ca2.farmer.example.com"
+    "pattern": "(\\w*)ca2.farmer.example.com(\\w*)"
+    "sslTargetOverrideUrlSubstitutionExp": "ca2.farmer.example.com"
+    "urlSubstitutionExp": "192.168.0.103:7001"
+  - "mappedHost": "ca1.wholesaler.example.com"
+    "pattern": "(\\w*)ca1.wholesaler.example.com(\\w*)"
+    "sslTargetOverrideUrlSubstitutionExp": "ca1.wholesaler.example.com"
+    "urlSubstitutionExp": "192.168.0.103:7002"
+  - "mappedHost": "ca2.wholesaler.example.com"
+    "pattern": "(\\w*)ca2.wholesaler.example.com(\\w*)"
+    "sslTargetOverrideUrlSubstitutionExp": "ca2.wholesaler.example.com"
+    "urlSubstitutionExp": "192.168.0.103:7003"
+  - "mappedHost": "ca1.distributor.example.com"
+    "pattern": "(\\w*)ca1.distributor.example.com(\\w*)"
+    "sslTargetOverrideUrlSubstitutionExp": "ca1.distributor.example.com"
+    "urlSubstitutionExp": "192.168.0.103:7004"
+  - "mappedHost": "ca2.distributor.example.com"
+    "pattern": "(\\w*)ca2.distributor.example.com(\\w*)"
+    "sslTargetOverrideUrlSubstitutionExp": "ca2.distributor.example.com"
+    "urlSubstitutionExp": "192.168.0.103:7005"
+  - "mappedHost": "ca1.retailer.example.com"
+    "pattern": "(\\w*)ca1.retailer.example.com(\\w*)"
+    "sslTargetOverrideUrlSubstitutionExp": "ca1.retailer.example.com"
+    "urlSubstitutionExp": "192.168.0.103:7006"
+  - "mappedHost": "ca2.retailer.example.com"
+    "pattern": "(\\w*)ca2.retailer.example.com(\\w*)"
+    "sslTargetOverrideUrlSubstitutionExp": "ca2.retailer.example.com"
+    "urlSubstitutionExp": "192.168.0.103:7007"
+  - "mappedHost": "ca1.transporter.example.com"
+    "pattern": "(\\w*)ca1.transporter.example.com(\\w*)"
+    "sslTargetOverrideUrlSubstitutionExp": "ca1.transporter.example.com"
+    "urlSubstitutionExp": "192.168.0.103:7008"
+  - "mappedHost": "ca2.transporter.example.com"
+    "pattern": "(\\w*)ca2.transporter.example.com(\\w*)"
+    "sslTargetOverrideUrlSubstitutionExp": "ca2.transporter.example.com"
+    "urlSubstitutionExp": "192.168.0.103:7009"

@@ -1,0 +1,242 @@
+---
+"name": "fabric-network"
+"x-type": "hlfv1"
+"version": "1.0.0"
+"channels":
+  "autochannel":
+    "orderers":
+    - "orderer.example.com"
+    "peers":
+    - "peer1.farmer.example.com"
+    - "peer2.farmer.example.com"
+    - "peer1.wholesaler.example.com"
+    - "peer2.wholesaler.example.com"
+    - "peer1.distributor.example.com"
+    - "peer2.distributor.example.com"
+    - "peer1.retailer.example.com"
+    - "peer2.retailer.example.com"
+    - "peer1.transporter.example.com"
+    - "peer2.transporter.example.com"
+"organizations":
+  "distributor.example.com":
+    "mspid": "distributor-example-com"
+    "peers":
+    - "peer1.distributor.example.com"
+    - "peer2.distributor.example.com"
+    "orderers": []
+    "certificateAuthorities":
+    - "ca1.distributor.example.com"
+    - "ca2.distributor.example.com"
+  "example.com":
+    "mspid": "example-com"
+    "peers": []
+    "orderers":
+    - "orderer.example.com"
+  "farmer.example.com":
+    "mspid": "farmer-example-com"
+    "peers":
+    - "peer1.farmer.example.com"
+    - "peer2.farmer.example.com"
+    "orderers": []
+    "certificateAuthorities":
+    - "ca1.farmer.example.com"
+    - "ca2.farmer.example.com"
+  "retailer.example.com":
+    "mspid": "retailer-example-com"
+    "peers":
+    - "peer1.retailer.example.com"
+    - "peer2.retailer.example.com"
+    "orderers": []
+    "certificateAuthorities":
+    - "ca1.retailer.example.com"
+    - "ca2.retailer.example.com"
+  "transporter.example.com":
+    "mspid": "transporter-example-com"
+    "peers":
+    - "peer1.transporter.example.com"
+    - "peer2.transporter.example.com"
+    "orderers": []
+    "certificateAuthorities":
+    - "ca1.transporter.example.com"
+    - "ca2.transporter.example.com"
+  "wholesaler.example.com":
+    "mspid": "wholesaler-example-com"
+    "peers":
+    - "peer1.wholesaler.example.com"
+    - "peer2.wholesaler.example.com"
+    "orderers": []
+    "certificateAuthorities":
+    - "ca1.wholesaler.example.com"
+    - "ca2.wholesaler.example.com"
+
+"orderers":
+  "orderer.example.com":
+    "url": "grpcs://192.168.0.103:7030"
+    "grpcOptions":
+      "ssl-target-name-override": "orderer.example.com"
+    "tlsCACerts":
+      "pem": "-----BEGIN CERTIFICATE-----\nMIICojCCAkigAwIBAgIUR5+r1MsfQ4Qh6fCPdojUQfoTWvIwCgYIKoZIzj0EAwIw\najELMAkGA1UEBhMCVVMxFzAVBgNVBAgMDk5vcnRoIENhcm9saW5hMRAwDgYDVQQH\nDAdSYWxlaWdoMRQwEgYDVQQKDAtleGFtcGxlLmNvbTEaMBgGA1UEAwwRdGxzY2Eu\nZXhhbXBsZS5jb20wHhcNMjMwMTI5MDUyMzM1WhcNMzMwMTI2MDUyMzM1WjBqMQsw\nCQYDVQQGEwJVUzEXMBUGA1UECAwOTm9ydGggQ2Fyb2xpbmExEDAOBgNVBAcMB1Jh\nbGVpZ2gxFDASBgNVBAoMC2V4YW1wbGUuY29tMRowGAYDVQQDDBF0bHNjYS5leGFt\ncGxlLmNvbTBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABEKDKZSpCpZ/bndX/Nac\npiILFjDDDB8tZHzpxGwac0y0Ooc+Exksptcl5Xv7yHpXFJp14x8X+ktvNSZmp7eY\nCNGjgcswgcgwHQYDVR0OBBYEFJMona5tdzpicbhUgnfhaFFbPpZnMB8GA1UdIwQY\nMBaAFJMona5tdzpicbhUgnfhaFFbPpZnMA8GA1UdEwEB/wQFMAMBAf8wDgYDVR0P\nAQH/BAQDAgGmMB0GA1UdJQQWMBQGCCsGAQUFBwMBBggrBgEFBQcDAjBGBgNVHREE\nPzA9hwTAqABnghF0bHNjYS5leGFtcGxlLmNvbYIRdGxzY2EtZXhhbXBsZS1jb22C\nCWxvY2FsaG9zdIcEfwAAATAKBggqhkjOPQQDAgNIADBFAiEAyqSdL7yrYDSwQyq8\nf6agSSUdqOsi/phqG1GkOGAqnQgCIDzOJQRwDVvx7jROLaj2F/rRCUc5A9h8frZ1\n4x6i5T8o\n-----END CERTIFICATE-----"
+
+"peers":
+  "peer1.farmer.example.com":
+    "url": "grpcs://192.168.0.103:7010"
+    "grpcOptions":
+      "ssl-target-name-override": "peer1.farmer.example.com"
+    "tlsCACerts":
+      "pem": "-----BEGIN CERTIFICATE-----\nMIIC0TCCAnagAwIBAgIUc3j2dwmy9h1t8mr6sojtmRbfRHYwCgYIKoZIzj0EAwIw\neTELMAkGA1UEBhMCVVMxFzAVBgNVBAgMDk5vcnRoIENhcm9saW5hMRAwDgYDVQQH\nDAdSYWxlaWdoMRswGQYDVQQKDBJmYXJtZXIuZXhhbXBsZS5jb20xIjAgBgNVBAMM\nGXRsc2NhMS5mYXJtZXIuZXhhbXBsZS5jb20wHhcNMjMwMTI5MDUyMzUyWhcNMzMw\nMTI2MDUyMzUyWjB5MQswCQYDVQQGEwJVUzEXMBUGA1UECAwOTm9ydGggQ2Fyb2xp\nbmExEDAOBgNVBAcMB1JhbGVpZ2gxGzAZBgNVBAoMEmZhcm1lci5leGFtcGxlLmNv\nbTEiMCAGA1UEAwwZdGxzY2ExLmZhcm1lci5leGFtcGxlLmNvbTBZMBMGByqGSM49\nAgEGCCqGSM49AwEHA0IABJQa5FAovBaQp+uVPA+nBNvN7LIMwYY3P3FAJ/1a51Fh\nrPxxTCvjmi0MC5WAdc+IKN6gLob5qS0XtweVRJaBFE+jgdswgdgwHQYDVR0OBBYE\nFN6okxVN0Rr9ognajpi2+xGel7QyMB8GA1UdIwQYMBaAFN6okxVN0Rr9ognajpi2\n+xGel7QyMA8GA1UdEwEB/wQFMAMBAf8wDgYDVR0PAQH/BAQDAgGmMB0GA1UdJQQW\nMBQGCCsGAQUFBwMBBggrBgEFBQcDAjBWBgNVHREETzBNhwTAqABnghl0bHNjYTEu\nZmFybWVyLmV4YW1wbGUuY29tghl0bHNjYTEtZmFybWVyLWV4YW1wbGUtY29tggls\nb2NhbGhvc3SHBH8AAAEwCgYIKoZIzj0EAwIDSQAwRgIhAK0pb1WTogYHLdxaX0TU\ne/4sfi1JF95MZd40BPHONZz9AiEA87633UWQEWNEan9SQJkoTaf2yhUBeQl+MPLR\nabLV0uk=\n-----END CERTIFICATE-----"
+  "peer2.farmer.example.com":
+    "url": "grpcs://192.168.0.103:7011"
+    "grpcOptions":
+      "ssl-target-name-override": "peer2.farmer.example.com"
+    "tlsCACerts":
+      "pem": "-----BEGIN CERTIFICATE-----\nMIIC0TCCAnagAwIBAgIUc3j2dwmy9h1t8mr6sojtmRbfRHYwCgYIKoZIzj0EAwIw\neTELMAkGA1UEBhMCVVMxFzAVBgNVBAgMDk5vcnRoIENhcm9saW5hMRAwDgYDVQQH\nDAdSYWxlaWdoMRswGQYDVQQKDBJmYXJtZXIuZXhhbXBsZS5jb20xIjAgBgNVBAMM\nGXRsc2NhMS5mYXJtZXIuZXhhbXBsZS5jb20wHhcNMjMwMTI5MDUyMzUyWhcNMzMw\nMTI2MDUyMzUyWjB5MQswCQYDVQQGEwJVUzEXMBUGA1UECAwOTm9ydGggQ2Fyb2xp\nbmExEDAOBgNVBAcMB1JhbGVpZ2gxGzAZBgNVBAoMEmZhcm1lci5leGFtcGxlLmNv\nbTEiMCAGA1UEAwwZdGxzY2ExLmZhcm1lci5leGFtcGxlLmNvbTBZMBMGByqGSM49\nAgEGCCqGSM49AwEHA0IABJQa5FAovBaQp+uVPA+nBNvN7LIMwYY3P3FAJ/1a51Fh\nrPxxTCvjmi0MC5WAdc+IKN6gLob5qS0XtweVRJaBFE+jgdswgdgwHQYDVR0OBBYE\nFN6okxVN0Rr9ognajpi2+xGel7QyMB8GA1UdIwQYMBaAFN6okxVN0Rr9ognajpi2\n+xGel7QyMA8GA1UdEwEB/wQFMAMBAf8wDgYDVR0PAQH/BAQDAgGmMB0GA1UdJQQW\nMBQGCCsGAQUFBwMBBggrBgEFBQcDAjBWBgNVHREETzBNhwTAqABnghl0bHNjYTEu\nZmFybWVyLmV4YW1wbGUuY29tghl0bHNjYTEtZmFybWVyLWV4YW1wbGUtY29tggls\nb2NhbGhvc3SHBH8AAAEwCgYIKoZIzj0EAwIDSQAwRgIhAK0pb1WTogYHLdxaX0TU\ne/4sfi1JF95MZd40BPHONZz9AiEA87633UWQEWNEan9SQJkoTaf2yhUBeQl+MPLR\nabLV0uk=\n-----END CERTIFICATE-----"
+  "peer1.wholesaler.example.com":
+    "url": "grpcs://192.168.0.103:7012"
+    "grpcOptions":
+      "ssl-target-name-override": "peer1.wholesaler.example.com"
+    "tlsCACerts":
+      "pem": "-----BEGIN CERTIFICATE-----\nMIIC6zCCApCgAwIBAgIULI+5ltaby6gjELQ6FPBwUHlWwJ8wCgYIKoZIzj0EAwIw\ngYExCzAJBgNVBAYTAlVTMRcwFQYDVQQIDA5Ob3J0aCBDYXJvbGluYTEQMA4GA1UE\nBwwHUmFsZWlnaDEfMB0GA1UECgwWd2hvbGVzYWxlci5leGFtcGxlLmNvbTEmMCQG\nA1UEAwwddGxzY2ExLndob2xlc2FsZXIuZXhhbXBsZS5jb20wHhcNMjMwMTI5MDUy\nNTAyWhcNMzMwMTI2MDUyNTAyWjCBgTELMAkGA1UEBhMCVVMxFzAVBgNVBAgMDk5v\ncnRoIENhcm9saW5hMRAwDgYDVQQHDAdSYWxlaWdoMR8wHQYDVQQKDBZ3aG9sZXNh\nbGVyLmV4YW1wbGUuY29tMSYwJAYDVQQDDB10bHNjYTEud2hvbGVzYWxlci5leGFt\ncGxlLmNvbTBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABHB9eaaLJS+0ZBOmY7tz\nEH2nb3hOwS0Dhkh37EFiUNcDB0M8cocdkkZ7TBHOjKqTN99yvYrk5DKQJi8yJmba\naaCjgeMwgeAwHQYDVR0OBBYEFAzfcckcT4owo5g60glBBsx+I8aKMB8GA1UdIwQY\nMBaAFAzfcckcT4owo5g60glBBsx+I8aKMA8GA1UdEwEB/wQFMAMBAf8wDgYDVR0P\nAQH/BAQDAgGmMB0GA1UdJQQWMBQGCCsGAQUFBwMBBggrBgEFBQcDAjBeBgNVHREE\nVzBVhwTAqABngh10bHNjYTEud2hvbGVzYWxlci5leGFtcGxlLmNvbYIddGxzY2Ex\nLXdob2xlc2FsZXItZXhhbXBsZS1jb22CCWxvY2FsaG9zdIcEfwAAATAKBggqhkjO\nPQQDAgNJADBGAiEA3XlELcUP2HN22yFBKkKjXRgt2oKtG6TJqMI7zWgRHFMCIQCv\nBdTI1YRDKnMKfDm00DpPvWajWMydPecmt1eBZ0O5lQ==\n-----END CERTIFICATE-----"
+  "peer2.wholesaler.example.com":
+    "url": "grpcs://192.168.0.103:7013"
+    "grpcOptions":
+      "ssl-target-name-override": "peer2.wholesaler.example.com"
+    "tlsCACerts":
+      "pem": "-----BEGIN CERTIFICATE-----\nMIIC6zCCApCgAwIBAgIULI+5ltaby6gjELQ6FPBwUHlWwJ8wCgYIKoZIzj0EAwIw\ngYExCzAJBgNVBAYTAlVTMRcwFQYDVQQIDA5Ob3J0aCBDYXJvbGluYTEQMA4GA1UE\nBwwHUmFsZWlnaDEfMB0GA1UECgwWd2hvbGVzYWxlci5leGFtcGxlLmNvbTEmMCQG\nA1UEAwwddGxzY2ExLndob2xlc2FsZXIuZXhhbXBsZS5jb20wHhcNMjMwMTI5MDUy\nNTAyWhcNMzMwMTI2MDUyNTAyWjCBgTELMAkGA1UEBhMCVVMxFzAVBgNVBAgMDk5v\ncnRoIENhcm9saW5hMRAwDgYDVQQHDAdSYWxlaWdoMR8wHQYDVQQKDBZ3aG9sZXNh\nbGVyLmV4YW1wbGUuY29tMSYwJAYDVQQDDB10bHNjYTEud2hvbGVzYWxlci5leGFt\ncGxlLmNvbTBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABHB9eaaLJS+0ZBOmY7tz\nEH2nb3hOwS0Dhkh37EFiUNcDB0M8cocdkkZ7TBHOjKqTN99yvYrk5DKQJi8yJmba\naaCjgeMwgeAwHQYDVR0OBBYEFAzfcckcT4owo5g60glBBsx+I8aKMB8GA1UdIwQY\nMBaAFAzfcckcT4owo5g60glBBsx+I8aKMA8GA1UdEwEB/wQFMAMBAf8wDgYDVR0P\nAQH/BAQDAgGmMB0GA1UdJQQWMBQGCCsGAQUFBwMBBggrBgEFBQcDAjBeBgNVHREE\nVzBVhwTAqABngh10bHNjYTEud2hvbGVzYWxlci5leGFtcGxlLmNvbYIddGxzY2Ex\nLXdob2xlc2FsZXItZXhhbXBsZS1jb22CCWxvY2FsaG9zdIcEfwAAATAKBggqhkjO\nPQQDAgNJADBGAiEA3XlELcUP2HN22yFBKkKjXRgt2oKtG6TJqMI7zWgRHFMCIQCv\nBdTI1YRDKnMKfDm00DpPvWajWMydPecmt1eBZ0O5lQ==\n-----END CERTIFICATE-----"
+  "peer1.distributor.example.com":
+    "url": "grpcs://192.168.0.103:7014"
+    "grpcOptions":
+      "ssl-target-name-override": "peer1.distributor.example.com"
+    "tlsCACerts":
+      "pem": "-----BEGIN CERTIFICATE-----\nMIIC8DCCApagAwIBAgIUGzVNkS7Z+XTpew5Vw8G+rCV6wWEwCgYIKoZIzj0EAwIw\ngYMxCzAJBgNVBAYTAlVTMRcwFQYDVQQIDA5Ob3J0aCBDYXJvbGluYTEQMA4GA1UE\nBwwHUmFsZWlnaDEgMB4GA1UECgwXZGlzdHJpYnV0b3IuZXhhbXBsZS5jb20xJzAl\nBgNVBAMMHnRsc2NhMS5kaXN0cmlidXRvci5leGFtcGxlLmNvbTAeFw0yMzAxMjkw\nNTIzMTJaFw0zMzAxMjYwNTIzMTJaMIGDMQswCQYDVQQGEwJVUzEXMBUGA1UECAwO\nTm9ydGggQ2Fyb2xpbmExEDAOBgNVBAcMB1JhbGVpZ2gxIDAeBgNVBAoMF2Rpc3Ry\naWJ1dG9yLmV4YW1wbGUuY29tMScwJQYDVQQDDB50bHNjYTEuZGlzdHJpYnV0b3Iu\nZXhhbXBsZS5jb20wWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAATE2YJSUcT2UApB\nWp6JK4agjO9HTpwUzehL4yD9NpTqliZGDhKjnG+j91JWMVA5da+oQAq49xR3KMiQ\n6Rgs2p7go4HlMIHiMB0GA1UdDgQWBBTyo4IaY2u28I16ggyq+StiuZ8o5jAfBgNV\nHSMEGDAWgBTyo4IaY2u28I16ggyq+StiuZ8o5jAPBgNVHRMBAf8EBTADAQH/MA4G\nA1UdDwEB/wQEAwIBpjAdBgNVHSUEFjAUBggrBgEFBQcDAQYIKwYBBQUHAwIwYAYD\nVR0RBFkwV4cEwKgAZ4IedGxzY2ExLmRpc3RyaWJ1dG9yLmV4YW1wbGUuY29tgh50\nbHNjYTEtZGlzdHJpYnV0b3ItZXhhbXBsZS1jb22CCWxvY2FsaG9zdIcEfwAAATAK\nBggqhkjOPQQDAgNIADBFAiAjMVcFyLAX8ocurTkdr60KKXMWA/hUWIr4SK1N+X1s\npgIhAKG6rsiq4iheSw0+7RDa7oeN8HHdWtyu5xYh1MU8hTMm\n-----END CERTIFICATE-----"
+  "peer2.distributor.example.com":
+    "url": "grpcs://192.168.0.103:7015"
+    "grpcOptions":
+      "ssl-target-name-override": "peer2.distributor.example.com"
+    "tlsCACerts":
+      "pem": "-----BEGIN CERTIFICATE-----\nMIIC8DCCApagAwIBAgIUGzVNkS7Z+XTpew5Vw8G+rCV6wWEwCgYIKoZIzj0EAwIw\ngYMxCzAJBgNVBAYTAlVTMRcwFQYDVQQIDA5Ob3J0aCBDYXJvbGluYTEQMA4GA1UE\nBwwHUmFsZWlnaDEgMB4GA1UECgwXZGlzdHJpYnV0b3IuZXhhbXBsZS5jb20xJzAl\nBgNVBAMMHnRsc2NhMS5kaXN0cmlidXRvci5leGFtcGxlLmNvbTAeFw0yMzAxMjkw\nNTIzMTJaFw0zMzAxMjYwNTIzMTJaMIGDMQswCQYDVQQGEwJVUzEXMBUGA1UECAwO\nTm9ydGggQ2Fyb2xpbmExEDAOBgNVBAcMB1JhbGVpZ2gxIDAeBgNVBAoMF2Rpc3Ry\naWJ1dG9yLmV4YW1wbGUuY29tMScwJQYDVQQDDB50bHNjYTEuZGlzdHJpYnV0b3Iu\nZXhhbXBsZS5jb20wWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAATE2YJSUcT2UApB\nWp6JK4agjO9HTpwUzehL4yD9NpTqliZGDhKjnG+j91JWMVA5da+oQAq49xR3KMiQ\n6Rgs2p7go4HlMIHiMB0GA1UdDgQWBBTyo4IaY2u28I16ggyq+StiuZ8o5jAfBgNV\nHSMEGDAWgBTyo4IaY2u28I16ggyq+StiuZ8o5jAPBgNVHRMBAf8EBTADAQH/MA4G\nA1UdDwEB/wQEAwIBpjAdBgNVHSUEFjAUBggrBgEFBQcDAQYIKwYBBQUHAwIwYAYD\nVR0RBFkwV4cEwKgAZ4IedGxzY2ExLmRpc3RyaWJ1dG9yLmV4YW1wbGUuY29tgh50\nbHNjYTEtZGlzdHJpYnV0b3ItZXhhbXBsZS1jb22CCWxvY2FsaG9zdIcEfwAAATAK\nBggqhkjOPQQDAgNIADBFAiAjMVcFyLAX8ocurTkdr60KKXMWA/hUWIr4SK1N+X1s\npgIhAKG6rsiq4iheSw0+7RDa7oeN8HHdWtyu5xYh1MU8hTMm\n-----END CERTIFICATE-----"
+  "peer1.retailer.example.com":
+    "url": "grpcs://192.168.0.103:7016"
+    "grpcOptions":
+      "ssl-target-name-override": "peer1.retailer.example.com"
+    "tlsCACerts":
+      "pem": "-----BEGIN CERTIFICATE-----\nMIIC3TCCAoKgAwIBAgIUXGhVlaFGX3RmKdXxms2KXz0k0/QwCgYIKoZIzj0EAwIw\nfTELMAkGA1UEBhMCVVMxFzAVBgNVBAgMDk5vcnRoIENhcm9saW5hMRAwDgYDVQQH\nDAdSYWxlaWdoMR0wGwYDVQQKDBRyZXRhaWxlci5leGFtcGxlLmNvbTEkMCIGA1UE\nAwwbdGxzY2ExLnJldGFpbGVyLmV4YW1wbGUuY29tMB4XDTIzMDEyOTA1MjQxNVoX\nDTMzMDEyNjA1MjQxNVowfTELMAkGA1UEBhMCVVMxFzAVBgNVBAgMDk5vcnRoIENh\ncm9saW5hMRAwDgYDVQQHDAdSYWxlaWdoMR0wGwYDVQQKDBRyZXRhaWxlci5leGFt\ncGxlLmNvbTEkMCIGA1UEAwwbdGxzY2ExLnJldGFpbGVyLmV4YW1wbGUuY29tMFkw\nEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEBQvkem/qT1jeQWk6dVAgWgKP4Y+VviXa\nRHHWrxRFGHt+zS2hWKZ6ceWtF6IlhCkq0A9XcViie71iGvyBu8oyT6OB3zCB3DAd\nBgNVHQ4EFgQUe+3facSf5WBHlkNCC9s4mxN1yY0wHwYDVR0jBBgwFoAUe+3facSf\n5WBHlkNCC9s4mxN1yY0wDwYDVR0TAQH/BAUwAwEB/zAOBgNVHQ8BAf8EBAMCAaYw\nHQYDVR0lBBYwFAYIKwYBBQUHAwEGCCsGAQUFBwMCMFoGA1UdEQRTMFGHBMCoAGeC\nG3Rsc2NhMS5yZXRhaWxlci5leGFtcGxlLmNvbYIbdGxzY2ExLXJldGFpbGVyLWV4\nYW1wbGUtY29tgglsb2NhbGhvc3SHBH8AAAEwCgYIKoZIzj0EAwIDSQAwRgIhAORC\n9OhFLZRW6lhWEMWAEDk+Sq9HkKie3Tm+CSYy3uaLAiEAnDrsomaQqmbOL7x0V12g\nITggQ8QphPnzFtlNP3hzdmw=\n-----END CERTIFICATE-----"
+  "peer2.retailer.example.com":
+    "url": "grpcs://192.168.0.103:7017"
+    "grpcOptions":
+      "ssl-target-name-override": "peer2.retailer.example.com"
+    "tlsCACerts":
+      "pem": "-----BEGIN CERTIFICATE-----\nMIIC3TCCAoKgAwIBAgIUXGhVlaFGX3RmKdXxms2KXz0k0/QwCgYIKoZIzj0EAwIw\nfTELMAkGA1UEBhMCVVMxFzAVBgNVBAgMDk5vcnRoIENhcm9saW5hMRAwDgYDVQQH\nDAdSYWxlaWdoMR0wGwYDVQQKDBRyZXRhaWxlci5leGFtcGxlLmNvbTEkMCIGA1UE\nAwwbdGxzY2ExLnJldGFpbGVyLmV4YW1wbGUuY29tMB4XDTIzMDEyOTA1MjQxNVoX\nDTMzMDEyNjA1MjQxNVowfTELMAkGA1UEBhMCVVMxFzAVBgNVBAgMDk5vcnRoIENh\ncm9saW5hMRAwDgYDVQQHDAdSYWxlaWdoMR0wGwYDVQQKDBRyZXRhaWxlci5leGFt\ncGxlLmNvbTEkMCIGA1UEAwwbdGxzY2ExLnJldGFpbGVyLmV4YW1wbGUuY29tMFkw\nEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEBQvkem/qT1jeQWk6dVAgWgKP4Y+VviXa\nRHHWrxRFGHt+zS2hWKZ6ceWtF6IlhCkq0A9XcViie71iGvyBu8oyT6OB3zCB3DAd\nBgNVHQ4EFgQUe+3facSf5WBHlkNCC9s4mxN1yY0wHwYDVR0jBBgwFoAUe+3facSf\n5WBHlkNCC9s4mxN1yY0wDwYDVR0TAQH/BAUwAwEB/zAOBgNVHQ8BAf8EBAMCAaYw\nHQYDVR0lBBYwFAYIKwYBBQUHAwEGCCsGAQUFBwMCMFoGA1UdEQRTMFGHBMCoAGeC\nG3Rsc2NhMS5yZXRhaWxlci5leGFtcGxlLmNvbYIbdGxzY2ExLXJldGFpbGVyLWV4\nYW1wbGUtY29tgglsb2NhbGhvc3SHBH8AAAEwCgYIKoZIzj0EAwIDSQAwRgIhAORC\n9OhFLZRW6lhWEMWAEDk+Sq9HkKie3Tm+CSYy3uaLAiEAnDrsomaQqmbOL7x0V12g\nITggQ8QphPnzFtlNP3hzdmw=\n-----END CERTIFICATE-----"
+  "peer1.transporter.example.com":
+    "url": "grpcs://192.168.0.103:7018"
+    "grpcOptions":
+      "ssl-target-name-override": "peer1.transporter.example.com"
+    "tlsCACerts":
+      "pem": "-----BEGIN CERTIFICATE-----\nMIIC8TCCApagAwIBAgIUOGBJjYNsBgVV6bIb+3eK51CGzyAwCgYIKoZIzj0EAwIw\ngYMxCzAJBgNVBAYTAlVTMRcwFQYDVQQIDA5Ob3J0aCBDYXJvbGluYTEQMA4GA1UE\nBwwHUmFsZWlnaDEgMB4GA1UECgwXdHJhbnNwb3J0ZXIuZXhhbXBsZS5jb20xJzAl\nBgNVBAMMHnRsc2NhMS50cmFuc3BvcnRlci5leGFtcGxlLmNvbTAeFw0yMzAxMjkw\nNTI0MzhaFw0zMzAxMjYwNTI0MzhaMIGDMQswCQYDVQQGEwJVUzEXMBUGA1UECAwO\nTm9ydGggQ2Fyb2xpbmExEDAOBgNVBAcMB1JhbGVpZ2gxIDAeBgNVBAoMF3RyYW5z\ncG9ydGVyLmV4YW1wbGUuY29tMScwJQYDVQQDDB50bHNjYTEudHJhbnNwb3J0ZXIu\nZXhhbXBsZS5jb20wWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAATyUUPpircTsOLF\noAy3VXdqMDoNsGz09o9Jp0WO+zQxX7p38Es66d0fZo0X7TYedJ/WVtGKr8F3D3pH\nxMgFLOIRo4HlMIHiMB0GA1UdDgQWBBR2qt76THZBRyQpc+5cvknqZ3y0DDAfBgNV\nHSMEGDAWgBR2qt76THZBRyQpc+5cvknqZ3y0DDAPBgNVHRMBAf8EBTADAQH/MA4G\nA1UdDwEB/wQEAwIBpjAdBgNVHSUEFjAUBggrBgEFBQcDAQYIKwYBBQUHAwIwYAYD\nVR0RBFkwV4cEwKgAZ4IedGxzY2ExLnRyYW5zcG9ydGVyLmV4YW1wbGUuY29tgh50\nbHNjYTEtdHJhbnNwb3J0ZXItZXhhbXBsZS1jb22CCWxvY2FsaG9zdIcEfwAAATAK\nBggqhkjOPQQDAgNJADBGAiEAwPQhUGXAG8Gd+FT0IvIrPLJfDCfcZjazMuAmBu5y\n9BMCIQCcc+j37DDW6oF63XYsMrY1WwNwSHT1eoxCiamnyoUz6Q==\n-----END CERTIFICATE-----"
+  "peer2.transporter.example.com":
+    "url": "grpcs://192.168.0.103:7019"
+    "grpcOptions":
+      "ssl-target-name-override": "peer2.transporter.example.com"
+    "tlsCACerts":
+      "pem": "-----BEGIN CERTIFICATE-----\nMIIC8TCCApagAwIBAgIUOGBJjYNsBgVV6bIb+3eK51CGzyAwCgYIKoZIzj0EAwIw\ngYMxCzAJBgNVBAYTAlVTMRcwFQYDVQQIDA5Ob3J0aCBDYXJvbGluYTEQMA4GA1UE\nBwwHUmFsZWlnaDEgMB4GA1UECgwXdHJhbnNwb3J0ZXIuZXhhbXBsZS5jb20xJzAl\nBgNVBAMMHnRsc2NhMS50cmFuc3BvcnRlci5leGFtcGxlLmNvbTAeFw0yMzAxMjkw\nNTI0MzhaFw0zMzAxMjYwNTI0MzhaMIGDMQswCQYDVQQGEwJVUzEXMBUGA1UECAwO\nTm9ydGggQ2Fyb2xpbmExEDAOBgNVBAcMB1JhbGVpZ2gxIDAeBgNVBAoMF3RyYW5z\ncG9ydGVyLmV4YW1wbGUuY29tMScwJQYDVQQDDB50bHNjYTEudHJhbnNwb3J0ZXIu\nZXhhbXBsZS5jb20wWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAATyUUPpircTsOLF\noAy3VXdqMDoNsGz09o9Jp0WO+zQxX7p38Es66d0fZo0X7TYedJ/WVtGKr8F3D3pH\nxMgFLOIRo4HlMIHiMB0GA1UdDgQWBBR2qt76THZBRyQpc+5cvknqZ3y0DDAfBgNV\nHSMEGDAWgBR2qt76THZBRyQpc+5cvknqZ3y0DDAPBgNVHRMBAf8EBTADAQH/MA4G\nA1UdDwEB/wQEAwIBpjAdBgNVHSUEFjAUBggrBgEFBQcDAQYIKwYBBQUHAwIwYAYD\nVR0RBFkwV4cEwKgAZ4IedGxzY2ExLnRyYW5zcG9ydGVyLmV4YW1wbGUuY29tgh50\nbHNjYTEtdHJhbnNwb3J0ZXItZXhhbXBsZS1jb22CCWxvY2FsaG9zdIcEfwAAATAK\nBggqhkjOPQQDAgNJADBGAiEAwPQhUGXAG8Gd+FT0IvIrPLJfDCfcZjazMuAmBu5y\n9BMCIQCcc+j37DDW6oF63XYsMrY1WwNwSHT1eoxCiamnyoUz6Q==\n-----END CERTIFICATE-----"
+
+"certificateAuthorities":
+  "ca1.farmer.example.com":
+    "url": "https://192.168.0.103:7000"
+    "tlsCACerts":
+      "pem": "-----BEGIN CERTIFICATE-----\nMIICxDCCAmqgAwIBAgIUNqEJSSwsDYJdAlvbebNVRozr7jQwCgYIKoZIzj0EAwIw\ndjELMAkGA1UEBhMCVVMxFzAVBgNVBAgMDk5vcnRoIENhcm9saW5hMRAwDgYDVQQH\nDAdSYWxlaWdoMRswGQYDVQQKDBJmYXJtZXIuZXhhbXBsZS5jb20xHzAdBgNVBAMM\nFmNhMS5mYXJtZXIuZXhhbXBsZS5jb20wHhcNMjMwMTI5MDUyMzUyWhcNMzMwMTI2\nMDUyMzUyWjB2MQswCQYDVQQGEwJVUzEXMBUGA1UECAwOTm9ydGggQ2Fyb2xpbmEx\nEDAOBgNVBAcMB1JhbGVpZ2gxGzAZBgNVBAoMEmZhcm1lci5leGFtcGxlLmNvbTEf\nMB0GA1UEAwwWY2ExLmZhcm1lci5leGFtcGxlLmNvbTBZMBMGByqGSM49AgEGCCqG\nSM49AwEHA0IABA20HUP941e1AD+Hgo88rebVAe9SFAw3CPjyHPMXUJ0/5dD0/yoT\na+PfhbOjPw+QV7vAe64IXj3jEXDo5u5apAejgdUwgdIwHQYDVR0OBBYEFOrx+2jK\n3Qvl7K8BUsQ3pk6Hns55MB8GA1UdIwQYMBaAFOrx+2jK3Qvl7K8BUsQ3pk6Hns55\nMA8GA1UdEwEB/wQFMAMBAf8wDgYDVR0PAQH/BAQDAgGmMB0GA1UdJQQWMBQGCCsG\nAQUFBwMBBggrBgEFBQcDAjBQBgNVHREESTBHhwTAqABnghZjYTEuZmFybWVyLmV4\nYW1wbGUuY29tghZjYTEtZmFybWVyLWV4YW1wbGUtY29tgglsb2NhbGhvc3SHBH8A\nAAEwCgYIKoZIzj0EAwIDSAAwRQIhALF+BDyhnc7a2zcgoRstTxBaXAWnEEmXBkSP\nYdI/ceXSAiA+wi8T5v2Ngg/28U69ZBjJ377zW02fmpybHpvUu4z/lQ==\n-----END CERTIFICATE-----"
+    "httpOptions":
+      "verify": "false"
+    "caName": "ca1"
+    "registrar":
+      "enrollId": "admin"
+      "enrollSecret": "adminpw"
+  "ca2.farmer.example.com":
+    "url": "https://192.168.0.103:7001"
+    "tlsCACerts":
+      "pem": "-----BEGIN CERTIFICATE-----\nMIICFzCCAb2gAwIBAgIUFlMyXD01XNgcuagiFJX+lZX24vQwCgYIKoZIzj0EAwIw\naDELMAkGA1UEBhMCVVMxFzAVBgNVBAgTDk5vcnRoIENhcm9saW5hMRQwEgYDVQQK\nEwtIeXBlcmxlZGdlcjEPMA0GA1UECxMGRmFicmljMRkwFwYDVQQDExBmYWJyaWMt\nY2Etc2VydmVyMB4XDTIzMDEyOTA1MjEwMFoXDTM4MDEyNTA1MjEwMFowaDELMAkG\nA1UEBhMCVVMxFzAVBgNVBAgTDk5vcnRoIENhcm9saW5hMRQwEgYDVQQKEwtIeXBl\ncmxlZGdlcjEPMA0GA1UECxMGRmFicmljMRkwFwYDVQQDExBmYWJyaWMtY2Etc2Vy\ndmVyMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEGx4Sg0nvSs7Wvw7glHuFAusx\nkG8awu6a3LP8dGzwYzotBSjc2ANAbnF/5VP7URifN59OapFjSzdMc0E+gFYYvaNF\nMEMwDgYDVR0PAQH/BAQDAgEGMBIGA1UdEwEB/wQIMAYBAf8CAQEwHQYDVR0OBBYE\nFPg557eTcV0bZC/8rTtQXSaNvzhrMAoGCCqGSM49BAMCA0gAMEUCIQDqb4hhSk3h\nv/MIJh3gnl8KiADcJbKetWWanBDC4ZQ8CgIgGqLs8PW9Q5gJCuWGt4Xd4U4858XM\nQOqmjbk80YAPggk=\n-----END CERTIFICATE-----"
+    "httpOptions":
+      "verify": "false"
+    "caName": "ca2"
+    "registrar":
+      "enrollId": "admin"
+      "enrollSecret": "adminpw"
+  "ca1.wholesaler.example.com":
+    "url": "https://192.168.0.103:7002"
+    "tlsCACerts":
+      "pem": "-----BEGIN CERTIFICATE-----\nMIIC2zCCAoKgAwIBAgIUQAurW7r5x43heEtp7H7IHMzSFjAwCgYIKoZIzj0EAwIw\nfjELMAkGA1UEBhMCVVMxFzAVBgNVBAgMDk5vcnRoIENhcm9saW5hMRAwDgYDVQQH\nDAdSYWxlaWdoMR8wHQYDVQQKDBZ3aG9sZXNhbGVyLmV4YW1wbGUuY29tMSMwIQYD\nVQQDDBpjYTEud2hvbGVzYWxlci5leGFtcGxlLmNvbTAeFw0yMzAxMjkwNTI1MDFa\nFw0zMzAxMjYwNTI1MDFaMH4xCzAJBgNVBAYTAlVTMRcwFQYDVQQIDA5Ob3J0aCBD\nYXJvbGluYTEQMA4GA1UEBwwHUmFsZWlnaDEfMB0GA1UECgwWd2hvbGVzYWxlci5l\neGFtcGxlLmNvbTEjMCEGA1UEAwwaY2ExLndob2xlc2FsZXIuZXhhbXBsZS5jb20w\nWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAARBxE/n5btZliLHwrLd8enmtRjMFqTz\nnKhfyPEWrozE+/6ACABdRSW1fsJtdg+n3KDNR4m/wsumBHtVYphjO0hwo4HdMIHa\nMB0GA1UdDgQWBBSrNG/FnapICFx5Yp4QZkGHx+IKqzAfBgNVHSMEGDAWgBSrNG/F\nnapICFx5Yp4QZkGHx+IKqzAPBgNVHRMBAf8EBTADAQH/MA4GA1UdDwEB/wQEAwIB\npjAdBgNVHSUEFjAUBggrBgEFBQcDAQYIKwYBBQUHAwIwWAYDVR0RBFEwT4cEwKgA\nZ4IaY2ExLndob2xlc2FsZXIuZXhhbXBsZS5jb22CGmNhMS13aG9sZXNhbGVyLWV4\nYW1wbGUtY29tgglsb2NhbGhvc3SHBH8AAAEwCgYIKoZIzj0EAwIDRwAwRAIgIoCl\nMgoqN3pMo9IwP4uXnIxdWDltK1cZ/LXn7eGnbm4CIHT7bPs6VcvcHnJKoJ8yLTU/\nC7aWZZT8J6EvCPY3GnoQ\n-----END CERTIFICATE-----"
+    "httpOptions":
+      "verify": "false"
+    "caName": "ca1"
+    "registrar":
+      "enrollId": "admin"
+      "enrollSecret": "adminpw"
+  "ca2.wholesaler.example.com":
+    "url": "https://192.168.0.103:7003"
+    "tlsCACerts":
+      "pem": "-----BEGIN CERTIFICATE-----\nMIICFzCCAb2gAwIBAgIUZ1G7ZKsMvVC9rexGLs56DVqgtQEwCgYIKoZIzj0EAwIw\naDELMAkGA1UEBhMCVVMxFzAVBgNVBAgTDk5vcnRoIENhcm9saW5hMRQwEgYDVQQK\nEwtIeXBlcmxlZGdlcjEPMA0GA1UECxMGRmFicmljMRkwFwYDVQQDExBmYWJyaWMt\nY2Etc2VydmVyMB4XDTIzMDEyOTA1MjEwMFoXDTM4MDEyNTA1MjEwMFowaDELMAkG\nA1UEBhMCVVMxFzAVBgNVBAgTDk5vcnRoIENhcm9saW5hMRQwEgYDVQQKEwtIeXBl\ncmxlZGdlcjEPMA0GA1UECxMGRmFicmljMRkwFwYDVQQDExBmYWJyaWMtY2Etc2Vy\ndmVyMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEDjArR/8yYLF5DxstD2jK6BXK\nFgfznQQyY/ymDYOTSIHtLJbaAlw9hOLjdJScniDkzZGlUiKod0swGU+vHKCTNaNF\nMEMwDgYDVR0PAQH/BAQDAgEGMBIGA1UdEwEB/wQIMAYBAf8CAQEwHQYDVR0OBBYE\nFCR3kF+8O7l77LjLHnSyKiIwGl/HMAoGCCqGSM49BAMCA0gAMEUCIQC/r8jnXNtz\nRgvCRbLI/hka+RK/4rRwK9zJFgGMbLEXaQIgNUrwXvzn+tHD/CInxlro1WwMdXL0\ni6+CHhEq0Bahv2A=\n-----END CERTIFICATE-----"
+    "httpOptions":
+      "verify": "false"
+    "caName": "ca2"
+    "registrar":
+      "enrollId": "admin"
+      "enrollSecret": "adminpw"
+  "ca1.distributor.example.com":
+    "url": "https://192.168.0.103:7004"
+    "tlsCACerts":
+      "pem": "-----BEGIN CERTIFICATE-----\nMIIC5TCCAoqgAwIBAgIUephLmpT/04XIQzLwAqLon39MdOEwCgYIKoZIzj0EAwIw\ngYAxCzAJBgNVBAYTAlVTMRcwFQYDVQQIDA5Ob3J0aCBDYXJvbGluYTEQMA4GA1UE\nBwwHUmFsZWlnaDEgMB4GA1UECgwXZGlzdHJpYnV0b3IuZXhhbXBsZS5jb20xJDAi\nBgNVBAMMG2NhMS5kaXN0cmlidXRvci5leGFtcGxlLmNvbTAeFw0yMzAxMjkwNTIz\nMTJaFw0zMzAxMjYwNTIzMTJaMIGAMQswCQYDVQQGEwJVUzEXMBUGA1UECAwOTm9y\ndGggQ2Fyb2xpbmExEDAOBgNVBAcMB1JhbGVpZ2gxIDAeBgNVBAoMF2Rpc3RyaWJ1\ndG9yLmV4YW1wbGUuY29tMSQwIgYDVQQDDBtjYTEuZGlzdHJpYnV0b3IuZXhhbXBs\nZS5jb20wWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAAT2nId8E7NSFrGXVVtLJUXo\nPurmz+Y7MW+12D67wdp1+pAoAIlBZx6XXm5/LCQh4/hXh/4YIkcnm3+aDlddOTmP\no4HfMIHcMB0GA1UdDgQWBBS3DPiZncFKazXGkKzDqNYqvVuydTAfBgNVHSMEGDAW\ngBS3DPiZncFKazXGkKzDqNYqvVuydTAPBgNVHRMBAf8EBTADAQH/MA4GA1UdDwEB\n/wQEAwIBpjAdBgNVHSUEFjAUBggrBgEFBQcDAQYIKwYBBQUHAwIwWgYDVR0RBFMw\nUYcEwKgAZ4IbY2ExLmRpc3RyaWJ1dG9yLmV4YW1wbGUuY29tghtjYTEtZGlzdHJp\nYnV0b3ItZXhhbXBsZS1jb22CCWxvY2FsaG9zdIcEfwAAATAKBggqhkjOPQQDAgNJ\nADBGAiEA8m6HyekNl+mNG5tsTXjR9Po3TGxjxTOrxJyyzizOGAcCIQDsWrewGtFY\nq3x82T6oIQMb2wGFbjjw6MjTVtVG4oqoCA==\n-----END CERTIFICATE-----"
+    "httpOptions":
+      "verify": "false"
+    "caName": "ca1"
+    "registrar":
+      "enrollId": "admin"
+      "enrollSecret": "adminpw"
+  "ca2.distributor.example.com":
+    "url": "https://192.168.0.103:7005"
+    "tlsCACerts":
+      "pem": "-----BEGIN CERTIFICATE-----\nMIICFjCCAb2gAwIBAgIUUyaK1VMwkT8NelWLml0ZppfFGnAwCgYIKoZIzj0EAwIw\naDELMAkGA1UEBhMCVVMxFzAVBgNVBAgTDk5vcnRoIENhcm9saW5hMRQwEgYDVQQK\nEwtIeXBlcmxlZGdlcjEPMA0GA1UECxMGRmFicmljMRkwFwYDVQQDExBmYWJyaWMt\nY2Etc2VydmVyMB4XDTIzMDEyOTA1MjEwMFoXDTM4MDEyNTA1MjEwMFowaDELMAkG\nA1UEBhMCVVMxFzAVBgNVBAgTDk5vcnRoIENhcm9saW5hMRQwEgYDVQQKEwtIeXBl\ncmxlZGdlcjEPMA0GA1UECxMGRmFicmljMRkwFwYDVQQDExBmYWJyaWMtY2Etc2Vy\ndmVyMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEOMZVrZjzYSQK24hHCIRsJihd\ndj+TzDpGZRe3XUEMT9mfO9k9nYj2HQ3GUoIdJQ5hfES2qxw2S7u5YchhP7In0qNF\nMEMwDgYDVR0PAQH/BAQDAgEGMBIGA1UdEwEB/wQIMAYBAf8CAQEwHQYDVR0OBBYE\nFFvD6ojVIFhid0nQPvWl38Y/PH51MAoGCCqGSM49BAMCA0cAMEQCIFt2pkbib6AF\nYW8Da8oZ7eetdqv+txW0jo43gb+ZKABzAiBU9vnRr1xE5Mv+PHWruti2KqfmihKC\neF4Kjrm+5jtmHA==\n-----END CERTIFICATE-----"
+    "httpOptions":
+      "verify": "false"
+    "caName": "ca2"
+    "registrar":
+      "enrollId": "admin"
+      "enrollSecret": "adminpw"
+  "ca1.retailer.example.com":
+    "url": "https://192.168.0.103:7006"
+    "tlsCACerts":
+      "pem": "-----BEGIN CERTIFICATE-----\nMIIC0TCCAnagAwIBAgIUMN0lo2blu0/+t7hR/lqS72SOU5owCgYIKoZIzj0EAwIw\nejELMAkGA1UEBhMCVVMxFzAVBgNVBAgMDk5vcnRoIENhcm9saW5hMRAwDgYDVQQH\nDAdSYWxlaWdoMR0wGwYDVQQKDBRyZXRhaWxlci5leGFtcGxlLmNvbTEhMB8GA1UE\nAwwYY2ExLnJldGFpbGVyLmV4YW1wbGUuY29tMB4XDTIzMDEyOTA1MjQxNVoXDTMz\nMDEyNjA1MjQxNVowejELMAkGA1UEBhMCVVMxFzAVBgNVBAgMDk5vcnRoIENhcm9s\naW5hMRAwDgYDVQQHDAdSYWxlaWdoMR0wGwYDVQQKDBRyZXRhaWxlci5leGFtcGxl\nLmNvbTEhMB8GA1UEAwwYY2ExLnJldGFpbGVyLmV4YW1wbGUuY29tMFkwEwYHKoZI\nzj0CAQYIKoZIzj0DAQcDQgAEDU9ereQA5wUpTeQjBZ4B0xQfUu4dUx7Qc6zlPJhe\ngcUUdoFuly9ff55HGBizrUhBGNr5J/LyoJrxJgQvOBDKqaOB2TCB1jAdBgNVHQ4E\nFgQU+RKGCvyHW3dFjcDMWLuDmNbHBHswHwYDVR0jBBgwFoAU+RKGCvyHW3dFjcDM\nWLuDmNbHBHswDwYDVR0TAQH/BAUwAwEB/zAOBgNVHQ8BAf8EBAMCAaYwHQYDVR0l\nBBYwFAYIKwYBBQUHAwEGCCsGAQUFBwMCMFQGA1UdEQRNMEuHBMCoAGeCGGNhMS5y\nZXRhaWxlci5leGFtcGxlLmNvbYIYY2ExLXJldGFpbGVyLWV4YW1wbGUtY29tggls\nb2NhbGhvc3SHBH8AAAEwCgYIKoZIzj0EAwIDSQAwRgIhAOIwZmSKXU5EsQLNOKg6\nw6gUw1fEqkQSEFTXgGQhv0s1AiEAzeE1X7ZinP4Jh4ReDKCk1cwjUNkehyvBW/xW\nylXJ1tI=\n-----END CERTIFICATE-----"
+    "httpOptions":
+      "verify": "false"
+    "caName": "ca1"
+    "registrar":
+      "enrollId": "admin"
+      "enrollSecret": "adminpw"
+  "ca2.retailer.example.com":
+    "url": "https://192.168.0.103:7007"
+    "tlsCACerts":
+      "pem": "-----BEGIN CERTIFICATE-----\nMIICFzCCAb2gAwIBAgIUJ9P5rz+fzNOf2rbS1iIeDS72oGkwCgYIKoZIzj0EAwIw\naDELMAkGA1UEBhMCVVMxFzAVBgNVBAgTDk5vcnRoIENhcm9saW5hMRQwEgYDVQQK\nEwtIeXBlcmxlZGdlcjEPMA0GA1UECxMGRmFicmljMRkwFwYDVQQDExBmYWJyaWMt\nY2Etc2VydmVyMB4XDTIzMDEyOTA1MjEwMFoXDTM4MDEyNTA1MjEwMFowaDELMAkG\nA1UEBhMCVVMxFzAVBgNVBAgTDk5vcnRoIENhcm9saW5hMRQwEgYDVQQKEwtIeXBl\ncmxlZGdlcjEPMA0GA1UECxMGRmFicmljMRkwFwYDVQQDExBmYWJyaWMtY2Etc2Vy\ndmVyMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAESg0CTGG2XSZ9OpzzZJHSRMVZ\n38rmGE/y0lzIvfdjsR0YElI4uwWZUTlgPuhETEMeKZGmMhgZNkUaiMeagfMeG6NF\nMEMwDgYDVR0PAQH/BAQDAgEGMBIGA1UdEwEB/wQIMAYBAf8CAQEwHQYDVR0OBBYE\nFD+s3weZGkIkYcaHEVhZLjNIW879MAoGCCqGSM49BAMCA0gAMEUCIQCw3HztzGbK\nAaED0gds+ch93ASPNlpRlYdq+QsRoJdJ4wIgMCLYZzmWkLzTKeojzkT8i/L/odpD\n0/2uwIRAwCSS9sU=\n-----END CERTIFICATE-----"
+    "httpOptions":
+      "verify": "false"
+    "caName": "ca2"
+    "registrar":
+      "enrollId": "admin"
+      "enrollSecret": "adminpw"
+  "ca1.transporter.example.com":
+    "url": "https://192.168.0.103:7008"
+    "tlsCACerts":
+      "pem": "-----BEGIN CERTIFICATE-----\nMIIC5TCCAoqgAwIBAgIUBkubAGolz/IG3DsyhJ4r1771ZIwwCgYIKoZIzj0EAwIw\ngYAxCzAJBgNVBAYTAlVTMRcwFQYDVQQIDA5Ob3J0aCBDYXJvbGluYTEQMA4GA1UE\nBwwHUmFsZWlnaDEgMB4GA1UECgwXdHJhbnNwb3J0ZXIuZXhhbXBsZS5jb20xJDAi\nBgNVBAMMG2NhMS50cmFuc3BvcnRlci5leGFtcGxlLmNvbTAeFw0yMzAxMjkwNTI0\nMzhaFw0zMzAxMjYwNTI0MzhaMIGAMQswCQYDVQQGEwJVUzEXMBUGA1UECAwOTm9y\ndGggQ2Fyb2xpbmExEDAOBgNVBAcMB1JhbGVpZ2gxIDAeBgNVBAoMF3RyYW5zcG9y\ndGVyLmV4YW1wbGUuY29tMSQwIgYDVQQDDBtjYTEudHJhbnNwb3J0ZXIuZXhhbXBs\nZS5jb20wWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAARnqKFwsTeP/4AGmcXY80wj\ntgle7BtZA0biLoxLsFJNgmroGN3QNxCCiEdVVW5BsduQWUhEkvxQ8eTPYcvXSHUk\no4HfMIHcMB0GA1UdDgQWBBSrRK/TTEGs/z7qp5lZ0/Zsdyj9eDAfBgNVHSMEGDAW\ngBSrRK/TTEGs/z7qp5lZ0/Zsdyj9eDAPBgNVHRMBAf8EBTADAQH/MA4GA1UdDwEB\n/wQEAwIBpjAdBgNVHSUEFjAUBggrBgEFBQcDAQYIKwYBBQUHAwIwWgYDVR0RBFMw\nUYcEwKgAZ4IbY2ExLnRyYW5zcG9ydGVyLmV4YW1wbGUuY29tghtjYTEtdHJhbnNw\nb3J0ZXItZXhhbXBsZS1jb22CCWxvY2FsaG9zdIcEfwAAATAKBggqhkjOPQQDAgNJ\nADBGAiEA3CX2yeVq8af9AsLFQWb4gDxfeYbiiL5MzrGvNURZh4MCIQCR+OV1Ot+8\nZIYIcbWN61eiePb4hppxmtz622GHuTLj7A==\n-----END CERTIFICATE-----"
+    "httpOptions":
+      "verify": "false"
+    "caName": "ca1"
+    "registrar":
+      "enrollId": "admin"
+      "enrollSecret": "adminpw"
+  "ca2.transporter.example.com":
+    "url": "https://192.168.0.103:7009"
+    "tlsCACerts":
+      "pem": "-----BEGIN CERTIFICATE-----\nMIICFzCCAb2gAwIBAgIUXJ4ZVNSklF6XvJ9Xunqs3TbtpNYwCgYIKoZIzj0EAwIw\naDELMAkGA1UEBhMCVVMxFzAVBgNVBAgTDk5vcnRoIENhcm9saW5hMRQwEgYDVQQK\nEwtIeXBlcmxlZGdlcjEPMA0GA1UECxMGRmFicmljMRkwFwYDVQQDExBmYWJyaWMt\nY2Etc2VydmVyMB4XDTIzMDEyOTA1MjEwMFoXDTM4MDEyNTA1MjEwMFowaDELMAkG\nA1UEBhMCVVMxFzAVBgNVBAgTDk5vcnRoIENhcm9saW5hMRQwEgYDVQQKEwtIeXBl\ncmxlZGdlcjEPMA0GA1UECxMGRmFicmljMRkwFwYDVQQDExBmYWJyaWMtY2Etc2Vy\ndmVyMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEOEE802BhAl4VEyNc9+1ovd65\n+mUP42t6u3nt2DVdtdmlyCLxhcjrhF6qF/umm9NJgvCaHKlOYS4skst/u/jRgqNF\nMEMwDgYDVR0PAQH/BAQDAgEGMBIGA1UdEwEB/wQIMAYBAf8CAQEwHQYDVR0OBBYE\nFG4QSzBr2447z9bFmOStJalLU0e6MAoGCCqGSM49BAMCA0gAMEUCIQC5X5y9M4HZ\nwH0p6AG1KE6SK4345r2RVyerWZY+APUUHwIgAevsA+xt4tXF6ygww75QMNBkY9DF\ngEViq2rJEm0Q/vg=\n-----END CERTIFICATE-----"
+    "httpOptions":
+      "verify": "false"
+    "caName": "ca2"
+    "registrar":
+      "enrollId": "admin"
+      "enrollSecret": "adminpw"

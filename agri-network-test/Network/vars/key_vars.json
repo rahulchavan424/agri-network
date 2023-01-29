@@ -1,0 +1,205 @@
+{
+  "Admin@distributor.example.com": {
+    "key": "Admin@distributor.example.com",
+    "org": "distributor.example.com",
+    "path": "/home/vars/keyfiles/peerOrganizations/distributor.example.com/users/Admin@distributor.example.com/msp/keystore/priv_sk",
+    "pkey": "keyfiles/peerOrganizations/distributor.example.com/users/Admin@distributor.example.com/msp/keystore/priv_sk",
+    "type": "users"
+  },
+  "Admin@example.com": {
+    "key": "Admin@example.com",
+    "org": "example.com",
+    "path": "/home/vars/keyfiles/ordererOrganizations/example.com/users/Admin@example.com/msp/keystore/priv_sk",
+    "pkey": "keyfiles/ordererOrganizations/example.com/users/Admin@example.com/msp/keystore/priv_sk",
+    "type": "users"
+  },
+  "Admin@farmer.example.com": {
+    "key": "Admin@farmer.example.com",
+    "org": "farmer.example.com",
+    "path": "/home/vars/keyfiles/peerOrganizations/farmer.example.com/users/Admin@farmer.example.com/msp/keystore/priv_sk",
+    "pkey": "keyfiles/peerOrganizations/farmer.example.com/users/Admin@farmer.example.com/msp/keystore/priv_sk",
+    "type": "users"
+  },
+  "Admin@retailer.example.com": {
+    "key": "Admin@retailer.example.com",
+    "org": "retailer.example.com",
+    "path": "/home/vars/keyfiles/peerOrganizations/retailer.example.com/users/Admin@retailer.example.com/msp/keystore/priv_sk",
+    "pkey": "keyfiles/peerOrganizations/retailer.example.com/users/Admin@retailer.example.com/msp/keystore/priv_sk",
+    "type": "users"
+  },
+  "Admin@transporter.example.com": {
+    "key": "Admin@transporter.example.com",
+    "org": "transporter.example.com",
+    "path": "/home/vars/keyfiles/peerOrganizations/transporter.example.com/users/Admin@transporter.example.com/msp/keystore/priv_sk",
+    "pkey": "keyfiles/peerOrganizations/transporter.example.com/users/Admin@transporter.example.com/msp/keystore/priv_sk",
+    "type": "users"
+  },
+  "Admin@wholesaler.example.com": {
+    "key": "Admin@wholesaler.example.com",
+    "org": "wholesaler.example.com",
+    "path": "/home/vars/keyfiles/peerOrganizations/wholesaler.example.com/users/Admin@wholesaler.example.com/msp/keystore/priv_sk",
+    "pkey": "keyfiles/peerOrganizations/wholesaler.example.com/users/Admin@wholesaler.example.com/msp/keystore/priv_sk",
+    "type": "users"
+  },
+  "distributor.example.com": {
+    "key": "distributor.example.com",
+    "org": "distributor.example.com",
+    "path": "/home/vars/keyfiles/peerOrganizations/distributor.example.com/ca/priv_sk",
+    "pkey": "keyfiles/peerOrganizations/distributor.example.com/ca/priv_sk",
+    "type": "ca"
+  },
+  "distributor.example.com.tlsca": {
+    "key": "distributor.example.com",
+    "org": "distributor.example.com",
+    "path": "/home/vars/keyfiles/peerOrganizations/distributor.example.com/tlsca/priv_sk",
+    "pkey": "keyfiles/peerOrganizations/distributor.example.com/tlsca/priv_sk",
+    "type": "tlsca"
+  },
+  "example.com": {
+    "key": "example.com",
+    "org": "example.com",
+    "path": "/home/vars/keyfiles/ordererOrganizations/example.com/ca/priv_sk",
+    "pkey": "keyfiles/ordererOrganizations/example.com/ca/priv_sk",
+    "type": "ca"
+  },
+  "example.com.tlsca": {
+    "key": "example.com",
+    "org": "example.com",
+    "path": "/home/vars/keyfiles/ordererOrganizations/example.com/tlsca/priv_sk",
+    "pkey": "keyfiles/ordererOrganizations/example.com/tlsca/priv_sk",
+    "type": "tlsca"
+  },
+  "farmer.example.com": {
+    "key": "farmer.example.com",
+    "org": "farmer.example.com",
+    "path": "/home/vars/keyfiles/peerOrganizations/farmer.example.com/ca/priv_sk",
+    "pkey": "keyfiles/peerOrganizations/farmer.example.com/ca/priv_sk",
+    "type": "ca"
+  },
+  "farmer.example.com.tlsca": {
+    "key": "farmer.example.com",
+    "org": "farmer.example.com",
+    "path": "/home/vars/keyfiles/peerOrganizations/farmer.example.com/tlsca/priv_sk",
+    "pkey": "keyfiles/peerOrganizations/farmer.example.com/tlsca/priv_sk",
+    "type": "tlsca"
+  },
+  "orderer.example.com": {
+    "key": "orderer.example.com",
+    "org": "example.com",
+    "path": "/home/vars/keyfiles/ordererOrganizations/example.com/orderers/orderer.example.com/msp/keystore/priv_sk",
+    "pkey": "keyfiles/ordererOrganizations/example.com/orderers/orderer.example.com/msp/keystore/priv_sk",
+    "type": "orderers"
+  },
+  "peer1.distributor.example.com": {
+    "key": "peer1.distributor.example.com",
+    "org": "distributor.example.com",
+    "path": "/home/vars/keyfiles/peerOrganizations/distributor.example.com/peers/peer1.distributor.example.com/msp/keystore/priv_sk",
+    "pkey": "keyfiles/peerOrganizations/distributor.example.com/peers/peer1.distributor.example.com/msp/keystore/priv_sk",
+    "type": "peers"
+  },
+  "peer1.farmer.example.com": {
+    "key": "peer1.farmer.example.com",
+    "org": "farmer.example.com",
+    "path": "/home/vars/keyfiles/peerOrganizations/farmer.example.com/peers/peer1.farmer.example.com/msp/keystore/priv_sk",
+    "pkey": "keyfiles/peerOrganizations/farmer.example.com/peers/peer1.farmer.example.com/msp/keystore/priv_sk",
+    "type": "peers"
+  },
+  "peer1.retailer.example.com": {
+    "key": "peer1.retailer.example.com",
+    "org": "retailer.example.com",
+    "path": "/home/vars/keyfiles/peerOrganizations/retailer.example.com/peers/peer1.retailer.example.com/msp/keystore/priv_sk",
+    "pkey": "keyfiles/peerOrganizations/retailer.example.com/peers/peer1.retailer.example.com/msp/keystore/priv_sk",
+    "type": "peers"
+  },
+  "peer1.transporter.example.com": {
+    "key": "peer1.transporter.example.com",
+    "org": "transporter.example.com",
+    "path": "/home/vars/keyfiles/peerOrganizations/transporter.example.com/peers/peer1.transporter.example.com/msp/keystore/priv_sk",
+    "pkey": "keyfiles/peerOrganizations/transporter.example.com/peers/peer1.transporter.example.com/msp/keystore/priv_sk",
+    "type": "peers"
+  },
+  "peer1.wholesaler.example.com": {
+    "key": "peer1.wholesaler.example.com",
+    "org": "wholesaler.example.com",
+    "path": "/home/vars/keyfiles/peerOrganizations/wholesaler.example.com/peers/peer1.wholesaler.example.com/msp/keystore/priv_sk",
+    "pkey": "keyfiles/peerOrganizations/wholesaler.example.com/peers/peer1.wholesaler.example.com/msp/keystore/priv_sk",
+    "type": "peers"
+  },
+  "peer2.distributor.example.com": {
+    "key": "peer2.distributor.example.com",
+    "org": "distributor.example.com",
+    "path": "/home/vars/keyfiles/peerOrganizations/distributor.example.com/peers/peer2.distributor.example.com/msp/keystore/priv_sk",
+    "pkey": "keyfiles/peerOrganizations/distributor.example.com/peers/peer2.distributor.example.com/msp/keystore/priv_sk",
+    "type": "peers"
+  },
+  "peer2.farmer.example.com": {
+    "key": "peer2.farmer.example.com",
+    "org": "farmer.example.com",
+    "path": "/home/vars/keyfiles/peerOrganizations/farmer.example.com/peers/peer2.farmer.example.com/msp/keystore/priv_sk",
+    "pkey": "keyfiles/peerOrganizations/farmer.example.com/peers/peer2.farmer.example.com/msp/keystore/priv_sk",
+    "type": "peers"
+  },
+  "peer2.retailer.example.com": {
+    "key": "peer2.retailer.example.com",
+    "org": "retailer.example.com",
+    "path": "/home/vars/keyfiles/peerOrganizations/retailer.example.com/peers/peer2.retailer.example.com/msp/keystore/priv_sk",
+    "pkey": "keyfiles/peerOrganizations/retailer.example.com/peers/peer2.retailer.example.com/msp/keystore/priv_sk",
+    "type": "peers"
+  },
+  "peer2.transporter.example.com": {
+    "key": "peer2.transporter.example.com",
+    "org": "transporter.example.com",
+    "path": "/home/vars/keyfiles/peerOrganizations/transporter.example.com/peers/peer2.transporter.example.com/msp/keystore/priv_sk",
+    "pkey": "keyfiles/peerOrganizations/transporter.example.com/peers/peer2.transporter.example.com/msp/keystore/priv_sk",
+    "type": "peers"
+  },
+  "peer2.wholesaler.example.com": {
+    "key": "peer2.wholesaler.example.com",
+    "org": "wholesaler.example.com",
+    "path": "/home/vars/keyfiles/peerOrganizations/wholesaler.example.com/peers/peer2.wholesaler.example.com/msp/keystore/priv_sk",
+    "pkey": "keyfiles/peerOrganizations/wholesaler.example.com/peers/peer2.wholesaler.example.com/msp/keystore/priv_sk",
+    "type": "peers"
+  },
+  "retailer.example.com": {
+    "key": "retailer.example.com",
+    "org": "retailer.example.com",
+    "path": "/home/vars/keyfiles/peerOrganizations/retailer.example.com/ca/priv_sk",
+    "pkey": "keyfiles/peerOrganizations/retailer.example.com/ca/priv_sk",
+    "type": "ca"
+  },
+  "retailer.example.com.tlsca": {
+    "key": "retailer.example.com",
+    "org": "retailer.example.com",
+    "path": "/home/vars/keyfiles/peerOrganizations/retailer.example.com/tlsca/priv_sk",
+    "pkey": "keyfiles/peerOrganizations/retailer.example.com/tlsca/priv_sk",
+    "type": "tlsca"
+  },
+  "transporter.example.com": {
+    "key": "transporter.example.com",
+    "org": "transporter.example.com",
+    "path": "/home/vars/keyfiles/peerOrganizations/transporter.example.com/ca/priv_sk",
+    "pkey": "keyfiles/peerOrganizations/transporter.example.com/ca/priv_sk",
+    "type": "ca"
+  },
+  "transporter.example.com.tlsca": {
+    "key": "transporter.example.com",
+    "org": "transporter.example.com",
+    "path": "/home/vars/keyfiles/peerOrganizations/transporter.example.com/tlsca/priv_sk",
+    "pkey": "keyfiles/peerOrganizations/transporter.example.com/tlsca/priv_sk",
+    "type": "tlsca"
+  },
+  "wholesaler.example.com": {
+    "key": "wholesaler.example.com",
+    "org": "wholesaler.example.com",
+    "path": "/home/vars/keyfiles/peerOrganizations/wholesaler.example.com/ca/priv_sk",
+    "pkey": "keyfiles/peerOrganizations/wholesaler.example.com/ca/priv_sk",
+    "type": "ca"
+  },
+  "wholesaler.example.com.tlsca": {
+    "key": "wholesaler.example.com",
+    "org": "wholesaler.example.com",
+    "path": "/home/vars/keyfiles/peerOrganizations/wholesaler.example.com/tlsca/priv_sk",
+    "pkey": "keyfiles/peerOrganizations/wholesaler.example.com/tlsca/priv_sk",
+    "type": "tlsca"
+  }
+}
